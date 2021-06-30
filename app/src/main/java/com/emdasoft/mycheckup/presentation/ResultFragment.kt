@@ -15,7 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.CardsAdapter
 import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
-import com.emdasoft.mycheckup.domain.Card
+import com.emdasoft.mycheckup.domain.CardItem
 import kotlin.math.roundToInt
 
 class ResultFragment : Fragment(), CardsAdapter.Listener {
@@ -44,18 +44,18 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            val cards: MutableList<Card> = ArrayList()
-            cards.add(Card(0, "Cashalot", 52.23, "BYN", "POV"))
-            cards.add(Card(1, "БелВЭБ", 156.89, "BYN", "POV"))
-            cards.add(Card(2, "Наличные BYN", 96.0, "BYN", "POV"))
-            cards.add(Card(3, "Резерв", 400.0, "BYN", "RES"))
-            cards.add(Card(4, "МТ", 176.69, "BYN", "MT"))
-            cards.add(Card(5, "Наличные USD", 2750.0, "USD", "SEB"))
-            cards.add(Card(6, "Мелочь USD", 300.0, "USD", "SEB"))
-            cards.add(Card(7, "Наличные EUR", 980.0, "EUR", "SEB"))
-            cards.add(Card(8, "FinStore Инвестиции", 1020.0, "USD", "SEB"))
-            cards.add(Card(9, "FinStore Доход", 3.52, "USD", "SEB"))
-            cards.add(Card(10, "Отложенные BYN", 300.0, "BYN", "SEB"))
+            val cards: MutableList<CardItem> = ArrayList()
+            cards.add(CardItem("Cashalot", 52.23, "BYN", "POV"))
+            cards.add(CardItem("БелВЭБ", 156.89, "BYN", "POV"))
+            cards.add(CardItem("Наличные BYN", 96.0, "BYN", "POV"))
+            cards.add(CardItem("Резерв", 400.0, "BYN", "RES"))
+            cards.add(CardItem("МТ", 176.69, "BYN", "MT"))
+            cards.add(CardItem("Наличные USD", 2750.0, "USD", "SEB"))
+            cards.add(CardItem("Мелочь USD", 300.0, "USD", "SEB"))
+            cards.add(CardItem("Наличные EUR", 980.0, "EUR", "SEB"))
+            cards.add(CardItem("FinStore Инвестиции", 1020.0, "USD", "SEB"))
+            cards.add(CardItem("FinStore Доход", 3.52, "USD", "SEB"))
+            cards.add(CardItem( "Отложенные BYN", 300.0, "BYN", "SEB"))
 
             var total = 0.0
             for (item in cards){
@@ -95,7 +95,7 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
         fun newInstance() = ResultFragment()
     }
 
-    override fun onClick(card: Card) {
+    override fun onClick(card: CardItem) {
         Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
     }
 }

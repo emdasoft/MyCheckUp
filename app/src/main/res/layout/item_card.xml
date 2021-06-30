@@ -8,9 +8,9 @@
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient_blue">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tvCardLabel"

@@ -2,7 +2,7 @@ package com.emdasoft.mycheckup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.emdasoft.mycheckup.domain.Card
+import com.emdasoft.mycheckup.domain.CardItem
 
 open class DataModel : ViewModel() {
 
@@ -10,8 +10,8 @@ open class DataModel : ViewModel() {
         MutableLiveData<ArrayList<String>>()
     }
 
-    val cardsList: MutableLiveData<ArrayList<Card>> by lazy {
-        MutableLiveData<ArrayList<Card>>()
+    val cardsList: MutableLiveData<ArrayList<CardItem>> by lazy {
+        MutableLiveData<ArrayList<CardItem>>()
     }
 
 }

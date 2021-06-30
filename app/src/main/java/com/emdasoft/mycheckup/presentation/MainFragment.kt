@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentMainBinding
-import com.emdasoft.mycheckup.domain.Check
+import com.emdasoft.mycheckup.domain.CheckIt
 import java.lang.Exception
 
 class MainFragment : Fragment() {
@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnGo.setOnClickListener {
             try {
-                dataModel.checkData.value = Check.checkIt(
+                dataModel.checkData.value = CheckIt.checkIt(
                     binding.incomeTextInput.text.toString().toDouble(),
                     binding.balancePovTextInput.text.toString().toDouble(),
                     binding.balanceMtTextInput.text.toString().toDouble(),

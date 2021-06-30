@@ -1,10 +1,10 @@
 package com.emdasoft.mycheckup.domain
 
-class ReceiveMoneyUseCase(private val cardRepository: CardsRepository) {
+class ReceiveMoneyUseCase(private val cardListRepository: CardListRepository) {
 
-    fun receiveMoney(amount: Double, card: Card) {
+    fun receiveMoney(amount: Double, card: CardItem) {
 
-        cardRepository.receiveMoney(amount, card)
+        cardListRepository.receiveMoney(amount, card)
 
     }
 

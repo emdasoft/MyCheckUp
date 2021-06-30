@@ -89,8 +89,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/spendCard"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:elevation="8dp"
@@ -160,7 +160,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp">
 
@@ -171,6 +171,14 @@
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="24dp"
+                android:text="Balance by category"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,6 +192,7 @@
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
+                    android:id="@+id/tvAmountSeb"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -206,6 +215,7 @@
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
+                    android:id="@+id/tvAmountRes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -227,6 +237,7 @@
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
+                    android:id="@+id/tvAmountMt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -238,7 +249,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
 
                 <ImageView
                     android:layout_width="64dp"
@@ -247,6 +259,7 @@
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
+                    android:id="@+id/tvAmountPov"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"

@@ -1,10 +1,10 @@
 package com.emdasoft.mycheckup.domain
 
-class SpendMoneyUseCase(private val cardsRepository: CardsRepository) {
+class SpendMoneyUseCase(private val cardListRepository: CardListRepository) {
 
-    fun spendMoney(amount: Double, card: Card) {
+    fun spendMoney(amount: Double, card: CardItem) {
 
-        cardsRepository.spendMoney(amount, card)
+        cardListRepository.spendMoney(amount, card)
 
     }
 

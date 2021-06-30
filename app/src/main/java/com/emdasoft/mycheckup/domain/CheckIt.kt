@@ -1,6 +1,6 @@
 package com.emdasoft.mycheckup.domain
 
-class Check {
+class CheckIt {
 
     companion object {
 
