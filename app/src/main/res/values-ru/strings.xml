@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="income_hint">Введите ваш доход</string>
+    <string name="main_icon">Main Icon</string>
+    <string name="balance_hint">Введите ваш остаток</string>
+</resources>
