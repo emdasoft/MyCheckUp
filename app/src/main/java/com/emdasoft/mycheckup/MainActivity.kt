@@ -3,6 +3,7 @@ package com.emdasoft.mycheckup
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import com.emdasoft.mycheckup.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        openFragment(MainFragment.newInstance())
+
 //        binding.btnGo.setOnClickListener{
 //            val res = Check.checkIt(1200.0, 10.0)
 //            val pov = res[res.size - 1]
@@ -22,5 +25,10 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
-
+    private fun openFragment(f: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.placeHolder, f)
+            .commit()
+    }
 }
