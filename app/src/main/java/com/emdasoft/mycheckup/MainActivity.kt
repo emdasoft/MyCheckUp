@@ -17,18 +17,21 @@ class MainActivity : AppCompatActivity() {
 
         openFragment(MainFragment.newInstance())
 
+
 //        binding.btnGo.setOnClickListener{
 //            val res = Check.checkIt(1200.0, 10.0)
 //            val pov = res[res.size - 1]
 //            binding.tv.text = "${res[0]} // ${res[1]} // ${res[2]} // ${res[3]}"
 //            Log.d("MyLog", "$res")
 //        }
+
     }
 
     private fun openFragment(f: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.placeHolder, f)
+            .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .commit()
     }
 }
