@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MyCheckUp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+    <style name="Theme.MyCheckUp" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->DarkActionBar
         <item name="colorPrimary">@color/main_color</item>
         <item name="colorPrimaryVariant">@color/main_color</item>
         <item name="colorOnPrimary">@color/white</item>
