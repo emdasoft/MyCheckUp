@@ -10,127 +10,132 @@
         android:id="@+id/cv_diagram"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="10dp"
+        android:layout_margin="16dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_result"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_margin="10dp"
+        android:layout_margin="16dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="@+id/cv_diagram"
         app:layout_constraintStart_toStartOf="@+id/cv_diagram"
-        app:layout_constraintTop_toBottomOf="@+id/cv_diagram" >
+        app:layout_constraintTop_toBottomOf="@+id/cv_diagram">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
+                android:layout_marginStart="200dp"
+                android:layout_marginEnd="192dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_begin="166dp"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_cop"
-                    tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_cop"
+                app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="30sp"
-                    tools:text="1000 BYN" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1000 BYN" />
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_res"
+                app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:ignore="ContentDescription" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:text="500 BYN" />
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_res"
-                    tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_seb"
+                app:layout_constraintEnd_toStartOf="@+id/guideline6"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                tools:ignore="ContentDescription" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="30sp"
-                    tools:text="1000 BYN" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:text="700 BYN" />
 
-            </LinearLayout>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_coins"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                tools:ignore="ContentDescription" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:text="1500 BYN" />
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_seb"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="30sp"
-                    tools:text="1000 BYN" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_coins"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="30sp"
-                    tools:text="1000 BYN" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
