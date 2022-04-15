@@ -45,6 +45,7 @@
             android:layout_marginEnd="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/balance_hint"
@@ -54,14 +55,15 @@
 
         <Button
             android:id="@+id/btnGo"
-            style="@style/ShapeAppearanceOverlay.Material3.Button"
+            style="@style/MyButtonsColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
-            android:text="@string/btn_go"
             android:elevation="5dp"
+            android:minHeight="54dp"
+            android:text="@string/btn_go"
             android:textSize="18sp" />
 
     </LinearLayout>
