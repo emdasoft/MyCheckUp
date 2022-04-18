@@ -17,7 +17,8 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="@string/main_icon"
-            app:srcCompat="@drawable/ic_main_icon" />
+            app:srcCompat="@drawable/ic_main_icon"
+            tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inpIncome"
@@ -33,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/income_hint"
                 android:inputType="numberDecimal"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +53,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/balance_hint"
                 android:inputType="numberDecimal"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -65,7 +68,8 @@
             android:elevation="5dp"
             android:minHeight="54dp"
             android:text="@string/btn_go"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 
