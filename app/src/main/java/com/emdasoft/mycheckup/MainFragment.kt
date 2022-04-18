@@ -1,11 +1,11 @@
 package com.emdasoft.mycheckup
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.emdasoft.mycheckup.databinding.FragmentMainBinding
 import java.lang.Exception
@@ -53,7 +53,13 @@ class MainFragment : Fragment() {
                     ?.replace(R.id.placeHolder, ResultFragment.newInstance())
                     ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     ?.commit()
-            } catch (e: Exception) { Log.d("MyLog", "Exception")}
+            } catch (e: Exception) {
+                Toast.makeText(
+                    requireContext(),
+                    "Данные не введены или введены некорректно!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 

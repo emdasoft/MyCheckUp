@@ -21,7 +21,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_result"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
@@ -31,7 +31,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="16dp">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline6"
@@ -41,14 +42,13 @@
                 android:layout_marginEnd="192dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintGuide_begin="166dp"
+                app:layout_constraintGuide_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_cop"
                 app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -59,7 +59,6 @@
                 android:id="@+id/sebTV"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
-                android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
