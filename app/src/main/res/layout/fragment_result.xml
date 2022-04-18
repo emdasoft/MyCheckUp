@@ -56,12 +56,13 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/sebTV"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="1000 BYN" />
@@ -79,15 +80,15 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/resTV"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintEnd_toEndOf="@+id/sebTV"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/sebTV"
                 tools:text="500 BYN" />
 
             <ImageView
@@ -103,15 +104,15 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/mtTV"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="@+id/resTV"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/resTV"
                 tools:text="700 BYN" />
 
             <ImageView
@@ -125,15 +126,16 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/povTV"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="@+id/mtTV"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/mtTV"
                 tools:text="1500 BYN" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

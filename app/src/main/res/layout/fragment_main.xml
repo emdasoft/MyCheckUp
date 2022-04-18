@@ -28,6 +28,7 @@
             android:layout_marginEnd="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/incomeTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/income_hint"
@@ -45,7 +46,7 @@
             android:layout_marginEnd="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:id="@+id/balanceTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/balance_hint"
@@ -55,7 +56,7 @@
 
         <Button
             android:id="@+id/btnGo"
-            style="@style/MyButtonsColor"
+            style="@style/ShapeAppearanceOverlay.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
