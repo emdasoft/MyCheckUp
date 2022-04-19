@@ -24,17 +24,11 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataModel.sebData.observe(activity as LifecycleOwner,  {
-            binding.sebTV.text = it
-        })
-        dataModel.resData.observe(activity as LifecycleOwner,  {
-            binding.resTV.text = it
-        })
-        dataModel.mtData.observe(activity as LifecycleOwner,  {
-            binding.mtTV.text = it
-        })
-        dataModel.povData.observe(activity as LifecycleOwner,  {
-            binding.povTV.text = it
+        dataModel.checkData.observe(activity as LifecycleOwner, {
+            binding.sebTV.text = it[0]
+            binding.resTV.text = it[1]
+            binding.mtTV.text = it[2]
+            binding.povTV.text = it[3]
         })
     }
 
