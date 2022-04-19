@@ -13,7 +13,4 @@
         <item name="android:navigationBarColor">@color/main_color</item>
     </style>
 
-    <style name="MyButtonsColor" parent="@style/ShapeAppearanceOverlay.Material3.Button">
-        <item name="colorPrimary">@color/btn_color</item>
-    </style>
 </resources>

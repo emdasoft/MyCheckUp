@@ -17,7 +17,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="@string/main_icon"
-            app:srcCompat="@drawable/ic_main_icon"
+            app:srcCompat="@drawable/ic_res"
             tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout

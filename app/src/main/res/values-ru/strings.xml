@@ -3,4 +3,5 @@
     <string name="income_hint">Введите ваш доход</string>
     <string name="main_icon">Main Icon</string>
     <string name="balance_hint">Введите ваш остаток</string>
+    <string name="Error">Данные не введены или введены некорректно!</string>
 </resources>

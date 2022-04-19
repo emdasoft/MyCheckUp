@@ -4,5 +4,6 @@
     <string name="main_icon">Main Icon</string>
     <string name="balance_hint">Enter your balance</string>
     <string name="btn_go" translatable="false">Go!</string>
+    <string name="Error">Data was not entered or entered incorrectly</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

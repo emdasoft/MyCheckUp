@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
             } catch (e: Exception) {
                 Toast.makeText(
                     requireContext(),
-                    "Данные не введены или введены некорректно!",
+                    "${resources.getText(R.string.Error)}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
