@@ -4,4 +4,7 @@
     <string name="main_icon">Main Icon</string>
     <string name="balance_hint">Введите ваш остаток</string>
     <string name="Error">Данные не введены или введены некорректно!</string>
+    <string name="home_menu_btn">Главная</string>
+    <string name="cards_menu_btn">Счета</string>
+    <string name="transfer_menu_btn">Переводы</string>
 </resources>

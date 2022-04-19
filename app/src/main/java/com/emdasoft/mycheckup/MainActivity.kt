@@ -14,6 +14,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         openFragment(MainFragment.newInstance())
+        binding.bottomNav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> openFragment(MainFragment.newInstance())
+                R.id.cards -> openFragment(ResultFragment.newInstance())
+            }
+            true
+        }
     }
 
     private fun openFragment(f: Fragment) {

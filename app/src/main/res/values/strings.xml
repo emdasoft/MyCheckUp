@@ -5,5 +5,8 @@
     <string name="balance_hint">Enter your balance</string>
     <string name="btn_go" translatable="false">Go!</string>
     <string name="Error">Data was not entered or entered incorrectly</string>
+    <string name="home_menu_btn">Home</string>
+    <string name="cards_menu_btn">Cards</string>
+    <string name="transfer_menu_btn">Transfers</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
