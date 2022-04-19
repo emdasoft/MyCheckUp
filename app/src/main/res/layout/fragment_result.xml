@@ -58,12 +58,14 @@
 
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/materialCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintEnd_toStartOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+/>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -85,6 +87,15 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="1000 BYN" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/materialCheckBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/materialCheckBox"
+                app:layout_constraintStart_toStartOf="@+id/materialCheckBox"
+                app:layout_constraintTop_toBottomOf="@+id/materialCheckBox" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -110,6 +121,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/sebTV"
                 tools:text="500 BYN" />
 
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/materialCheckBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/materialCheckBox2"
+                app:layout_constraintStart_toStartOf="@+id/materialCheckBox2"
+                app:layout_constraintTop_toBottomOf="@+id/materialCheckBox2" />
+
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="0dp"
@@ -133,6 +153,14 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/resTV"
                 tools:text="700 BYN" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/materialCheckBox3"
+                app:layout_constraintStart_toStartOf="@+id/materialCheckBox3"
+                app:layout_constraintTop_toBottomOf="@+id/materialCheckBox3" />
 
             <ImageView
                 android:layout_width="64dp"
