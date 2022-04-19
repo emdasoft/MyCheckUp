@@ -27,27 +27,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnGo.setOnClickListener {
             try {
-                dataModel.sebData.value =
-                    Check.checkIt(
-                        binding.incomeTextInput.text.toString().toDouble(),
-                        binding.balanceTextInput.text.toString().toDouble()
-                    )[0]
-                dataModel.resData.value =
-                    Check.checkIt(
-                        binding.incomeTextInput.text.toString().toDouble(),
-                        binding.balanceTextInput.text.toString().toDouble()
-                    )[1]
-                dataModel.mtData.value =
-                    Check.checkIt(
-                        binding.incomeTextInput.text.toString().toDouble(),
-                        binding.balanceTextInput.text.toString().toDouble()
-                    )[2]
-                dataModel.povData.value =
-                    Check.checkIt(
-                        binding.incomeTextInput.text.toString().toDouble(),
-                        binding.balanceTextInput.text.toString().toDouble()
-                    )[3]
-
+                dataModel.checkData.value = Check.checkIt(
+                    binding.incomeTextInput.text.toString().toDouble(),
+                    binding.balanceTextInput.text.toString().toDouble()
+                )
                 activity?.supportFragmentManager
                     ?.beginTransaction()
                     ?.replace(R.id.placeHolder, ResultFragment.newInstance())
