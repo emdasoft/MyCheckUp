@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private fun openFragment(f: Fragment) {
         supportFragmentManager
             .beginTransaction()
+            .setCustomAnimations(R.anim.from_right_to_left, R.anim.exit_rigth_to_left,
+            R.anim.from_left_to_right, R.anim.exit_left_to_right)
             .replace(R.id.placeHolder, f)
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .commit()
