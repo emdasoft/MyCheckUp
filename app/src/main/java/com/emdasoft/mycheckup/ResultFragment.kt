@@ -30,6 +30,7 @@ class ResultFragment : Fragment() {
             binding.mtTV.text = it[2]
             binding.povTV.text = it[3]
         })
+
     }
 
     companion object {
