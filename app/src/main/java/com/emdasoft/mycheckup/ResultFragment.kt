@@ -17,11 +17,8 @@ class ResultFragment : Fragment() {
 
     private val dataModel: DataModel by activityViewModels()
     private lateinit var viewPager2: ViewPager2
-    private val cardOne = Card(0, "Наличные USD", 3200.0, "USD")
-    private val cardTwo = Card(1, "FinStore", 1200.0, "USD")
-    private val cardThree = Card(2, "Наличные EUR", 980.0, "EUR")
-
     private lateinit var binding: FragmentResultBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,12 +39,12 @@ class ResultFragment : Fragment() {
         binding.apply {
 
             viewPager2 = viewPager
-            val sliderItems: MutableList<Card> = ArrayList()
-            sliderItems.add(cardOne)
-            sliderItems.add(cardTwo)
-            sliderItems.add(cardThree)
+            val cards: MutableList<Card> = ArrayList()
+            cards.add(Card("Наличные USD", 3200.0, "USD"))
+            cards.add(Card("FinStore", 1200.0, "USD"))
+            cards.add(Card("Наличные EUR", 980.0, "EUR"))
 
-            viewPager2.adapter = CardsAdapter(sliderItems, viewPager2)
+            viewPager2.adapter = CardsAdapter(cards, viewPager2)
 
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
@@ -62,7 +59,6 @@ class ResultFragment : Fragment() {
             }
             viewPager2.setPageTransformer(compositePageTransformer)
         }
-
     }
 
     companion object {

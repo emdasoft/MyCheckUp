@@ -1,6 +1,5 @@
 package com.emdasoft.mycheckup
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +8,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.databinding.ItemCardBinding
 
 class CardsAdapter internal constructor(
-    sliderItem: MutableList<Card>,
+    cards: MutableList<Card>,
     viewPager: ViewPager2
 ) : RecyclerView.Adapter<CardsAdapter.CardHolder>() {
 
-    private var sliderItems: List<Card> = sliderItem
+    private var cards: List<Card> = cards
 
     class CardHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCardBinding.bind(item)
@@ -30,17 +29,11 @@ class CardsAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(sliderItems[position])
+        holder.bind(cards[position])
     }
 
     override fun getItemCount(): Int {
-        return sliderItems.size
+        return cards.size
     }
-
-//    @SuppressLint("NotifyDataSetChanged")
-//    fun addCheck(card: Card) {
-//        sliderItems.add(card)
-//        notifyDataSetChanged()
-//    }
 
 }
