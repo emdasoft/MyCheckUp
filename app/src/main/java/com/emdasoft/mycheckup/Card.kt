@@ -1,4 +1,4 @@
 package com.emdasoft.mycheckup
 
-class Card (val id: Int, val title: String, val amount: Double, val description: String) {
+class Card (val id: Int, val title: String, val amount: Double, val currency: String) {
 }

@@ -13,7 +13,7 @@
         android:background="@drawable/gradient">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvCardLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -24,7 +24,7 @@
             tools:text="Simple wallet" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvCardAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -32,18 +32,32 @@
             android:textColor="#FFFFFF"
             android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:text="8296 BYN" />
+            app:layout_constraintStart_toStartOf="@+id/tvCardLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardLabel"
+            tools:text="8296" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvCardCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:letterSpacing="0.05"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvCardAmount"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardLabel"
+            tools:text="BYN" />
+
+        <TextView
+            android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="#DFDCDC"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/tvCardAmount"
             tools:text="See details" />
 
 
