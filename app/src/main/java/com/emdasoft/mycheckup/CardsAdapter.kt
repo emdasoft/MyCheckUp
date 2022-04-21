@@ -20,6 +20,7 @@ class CardsAdapter internal constructor(
             tvCardLabel.text = card.title
             tvCardAmount.text = card.amount.toString()
             tvCardCurrency.text = card.currency
+            tvDescription.text = "See details"
         }
     }
 
