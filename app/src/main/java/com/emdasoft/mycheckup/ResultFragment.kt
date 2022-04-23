@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.marginStart
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
 
-class ResultFragment : Fragment() {
+class ResultFragment : Fragment(), CardsAdapter.Listener {
 
     private val dataModel: DataModel by activityViewModels()
     private lateinit var viewPager2: ViewPager2
@@ -41,11 +41,13 @@ class ResultFragment : Fragment() {
 
             viewPager2 = viewPager
             val cards: MutableList<Card> = ArrayList()
+            cards.add(Card("Наличные BYN", 200.0, "BYN"))
+            cards.add(Card("Deposit BELWEB", 200.68, "USD"))
             cards.add(Card("Наличные USD", 3200.0, "USD"))
             cards.add(Card("FinStore", 1200.0, "USD"))
             cards.add(Card("Наличные EUR", 980.0, "EUR"))
 
-            viewPager2.adapter = CardsAdapter(cards, viewPager2)
+            viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
 
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
@@ -57,7 +59,7 @@ class ResultFragment : Fragment() {
             compositePageTransformer.addTransformer(MarginPageTransformer(30))
             compositePageTransformer.addTransformer{ page, position ->
                 val r = 1 - kotlin.math.abs(position)
-                page.scaleY = 0.9f + r * 0.1f
+                page.scaleY = 0.8f + r * 0.1f
             }
             viewPager2.setPageTransformer(compositePageTransformer)
         }
@@ -66,5 +68,9 @@ class ResultFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() = ResultFragment()
+    }
+
+    override fun onClick(card: Card) {
+        Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
     }
 }

@@ -7,20 +7,24 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.databinding.ItemCardBinding
 
-class CardsAdapter internal constructor(
+class CardsAdapter (
     cards: MutableList<Card>,
-    viewPager: ViewPager2
+    viewPager: ViewPager2,
+    private val listener: Listener
 ) : RecyclerView.Adapter<CardsAdapter.CardHolder>() {
 
     private var cards: List<Card> = cards
 
     class CardHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCardBinding.bind(item)
-        fun bind(card: Card) = with(binding) {
+        fun bind(card: Card, listener: Listener) = with(binding) {
             tvCardLabel.text = card.title
             tvCardAmount.text = card.amount.toString()
             tvCardCurrency.text = card.currency
             tvDescription.text = "See details"
+            itemView.setOnClickListener {
+                listener.onClick(card)
+            }
         }
     }
 
@@ -30,11 +34,15 @@ class CardsAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(cards[position])
+        holder.bind(cards[position], listener)
     }
 
     override fun getItemCount(): Int {
         return cards.size
+    }
+
+    interface Listener {
+        fun onClick(card: Card)
     }
 
 }
