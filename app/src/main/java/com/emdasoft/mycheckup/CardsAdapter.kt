@@ -21,7 +21,7 @@ class CardsAdapter (
             tvCardLabel.text = card.title
             tvCardAmount.text = card.amount.toString()
             tvCardCurrency.text = card.currency
-            tvDescription.text = "See details"
+            tvDescription.text = itemView.context.getText(R.string.more_info)
             itemView.setOnClickListener {
                 listener.onClick(card)
             }

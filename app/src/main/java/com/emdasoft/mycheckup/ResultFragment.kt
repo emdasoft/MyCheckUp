@@ -41,11 +41,13 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
 
             viewPager2 = viewPager
             val cards: MutableList<Card> = ArrayList()
-            cards.add(Card("Наличные BYN", 200.0, "BYN"))
-            cards.add(Card("Deposit BELWEB", 200.68, "USD"))
-            cards.add(Card("Наличные USD", 3200.0, "USD"))
-            cards.add(Card("FinStore", 1200.0, "USD"))
+            cards.add(Card("Наличные USD", 2550.0, "USD"))
+            cards.add(Card("Мелочь USD", 280.0, "USD"))
             cards.add(Card("Наличные EUR", 980.0, "EUR"))
+            cards.add(Card("FinStore Инвестиции", 1020.0, "USD"))
+            cards.add(Card("FinStore Доход", 18.73, "USD"))
+            cards.add(Card("Вклады БелВЭБ", 404.69, "USD"))
+            cards.add(Card("Отложенные BYN", 145.0, "BYN"))
 
             viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
 

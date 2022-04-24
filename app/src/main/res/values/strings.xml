@@ -8,5 +8,6 @@
     <string name="home_menu_btn">Home</string>
     <string name="cards_menu_btn">Cards</string>
     <string name="transfer_menu_btn">Transfers</string>
+    <string name="more_info">See details...</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
