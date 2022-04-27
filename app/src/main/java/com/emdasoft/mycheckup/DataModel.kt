@@ -9,4 +9,8 @@ open class DataModel : ViewModel() {
         MutableLiveData<ArrayList<String>>()
     }
 
+    val cardData: MutableLiveData<Card> by lazy {
+        MutableLiveData<Card>()
+    }
+
 }

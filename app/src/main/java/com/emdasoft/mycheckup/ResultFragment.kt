@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
@@ -73,6 +72,15 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
     }
 
     override fun onClick(card: Card) {
-        Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
+        try{
+            dataModel.cardData.value = card
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.placeHolder, DescFragment.newInstance())
+                ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                ?.commit()
+        } catch (e: Exception) {
+            println("Sorry, $e")
+        }
     }
 }
