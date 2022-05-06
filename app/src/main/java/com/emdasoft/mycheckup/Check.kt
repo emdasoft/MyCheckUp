@@ -8,14 +8,16 @@ class Check {
 
             val result = arrayListOf<String>()
 
-            var seb: Double = num * 0.1
-            val res: Double = num * 0.2
-            val mt: Double = num * 0.2
-            var pov: Double = num * 0.5
+            val seb: Double = num * 0.1
+            var res: Double = num * 0.2
+            var mt: Double = num * 0.3
+            var pov: Double = num * 0.4
+
+            if (mt >= 500) mt = 500.0
 
             if (ost + pov >= 500) {
                 pov = 500 - ost
-                seb = num - (pov + res + mt)
+                res = num - (pov + seb + mt)
             }
 
             result.add(seb.toString())
