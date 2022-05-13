@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
+import kotlin.math.roundToInt
 
 class ResultFragment : Fragment(), CardsAdapter.Listener {
 
@@ -45,9 +46,24 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
             cards.add(Card("Мелочь USD", 280.0, "USD"))
             cards.add(Card("Наличные EUR", 980.0, "EUR"))
             cards.add(Card("FinStore Инвестиции", 1020.0, "USD"))
-            cards.add(Card("FinStore Доход", 18.73, "USD"))
+            cards.add(Card("FinStore Доход", 22.52, "USD"))
             cards.add(Card("Вклады БелВЭБ", 404.69, "USD"))
-            cards.add(Card("Отложенные BYN", 145.0, "BYN"))
+            cards.add(Card("Отложенные BYN", 530.92, "BYN"))
+
+            var total = 0.0
+            for (item in cards){
+                if(item.currency=="USD"){
+                    total += item.amount
+                }
+                if(item.currency=="BYN"){
+                    total += (item.amount / 2.5 * 100).roundToInt() / 100.00
+                }
+                if(item.currency=="EUR"){
+                    total += (item.amount * 1.04 * 100).roundToInt() / 100.00
+                }
+            }
+            val tmpText = "Total amount ${total.toString()} USD"
+            tvTotal.text = tmpText
 
             viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
 
