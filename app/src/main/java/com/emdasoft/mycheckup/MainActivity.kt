@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        openFragment(MainFragment.newInstance())
+        openFragment(CardsFragment.newInstance())
     }
 
     private fun openFragment(f: Fragment) {
