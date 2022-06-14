@@ -15,15 +15,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_cards" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/menu_bgr"
-        app:layout_constraintBottom_toBottomOf="@+id/placeHolder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottomNav"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/menu_bgr"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/placeHolder"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:menu="@menu/bottom_menu" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
