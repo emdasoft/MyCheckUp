@@ -105,6 +105,34 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTotalPov"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/tvTotalRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/tvTotalMt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/tvTotalSeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 
