@@ -77,6 +77,14 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
             }
             viewPager2.setPageTransformer(compositePageTransformer)
         }
+
+        binding.imageViewAdd.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.placeHolder, MainFragment.newInstance())
+                ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                ?.commit()
+        }
     }
 
     companion object {
