@@ -29,7 +29,9 @@ class MainFragment : Fragment() {
             try {
                 dataModel.checkData.value = Check.checkIt(
                     binding.incomeTextInput.text.toString().toDouble(),
-                    binding.balanceTextInput.text.toString().toDouble()
+                    binding.balancePovTextInput.text.toString().toDouble(),
+                    binding.balanceMtTextInput.text.toString().toDouble(),
+                    binding.balanceResTextInput.text.toString().toDouble()
                 )
                 activity?.supportFragmentManager
                     ?.beginTransaction()
