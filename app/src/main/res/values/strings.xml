@@ -11,4 +11,5 @@
     <string name="more_info">See details…</string>
     <string name="mt_hint">Enter your MT balance</string>
     <string name="res_hint">Enter your RES balance</string>
+    <string name="total_title">Current balance</string>
 </resources>

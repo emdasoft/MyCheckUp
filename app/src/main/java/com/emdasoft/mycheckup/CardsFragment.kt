@@ -76,12 +76,8 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 }
             }
             total = (total * 100).roundToInt() / 100.00
-            tvTotalPov.text = "Total POV is : $pov"
-            tvTotalRes.text = "Total RES is : $res"
-            tvTotalMt.text = "Total MT is : $mt"
-            tvTotalSeb.text = "Total SEB is : $seb"
-            val tmpText = "Total amount $total USD"
-            tvTotal.text = tmpText
+            val tmpText = "$ $total"
+            tvTotalBalance.text = tmpText
 
             viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
 
@@ -100,7 +96,7 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
             viewPager2.setPageTransformer(compositePageTransformer)
         }
 
-        binding.imageViewAdd.setOnClickListener {
+        binding.receiveButton.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.placeHolder, MainFragment.newInstance())

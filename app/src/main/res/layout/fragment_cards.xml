@@ -8,17 +8,38 @@
     android:orientation="vertical"
     tools:context=".CardsFragment">
 
-    <TextView
-        android:id="@+id/tvTotal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top"
-        android:fontFamily="@font/ubuntu_medium"
-        android:gravity="center"
-        android:textColor="@color/title_color"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        tools:text="Total amount: 10 000 USD" />
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTotalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@color/title_color"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:text="@string/total_title" />
+
+        <TextView
+            android:id="@+id/tvTotalBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="48dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@color/title_color"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            tools:text="$ 4.658,50" />
+
+    </LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -28,70 +49,45 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
         android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp">
+        android:layout_marginTop="4dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
-            android:layout_width="92dp"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="5dp"
+        <Button
+            android:id="@+id/receiveButton"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="receive"
+            app:icon="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/materialCardView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:elevation="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spendButton" />
 
-            <ImageView
-                android:id="@+id/imageViewAdd"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="14dp"
-                android:src="@drawable/ic_add"/>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView2"
-            android:layout_width="92dp"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="5dp"
+        <Button
+            android:id="@+id/spendButton"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="spend"
+            app:icon="@drawable/ic_baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/materialCardView3"
-            app:layout_constraintStart_toEndOf="@+id/materialCardView"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/receiveButton"
+            app:layout_constraintEnd_toStartOf="@+id/transferButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="14dp"
-                android:src="@drawable/ic_remove"/>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView3"
-            android:layout_width="92dp"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="5dp"
+        <Button
+            android:id="@+id/transferButton"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="transfer"
+            app:icon="@drawable/ic_transfers"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/materialCardView2"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="14dp"
-                android:src="@drawable/ic_published"/>
-
-        </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintStart_toEndOf="@+id/spendButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -108,28 +104,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/tvTotalPov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
+
             <TextView
                 android:id="@+id/tvTotalRes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
+
             <TextView
                 android:id="@+id/tvTotalMt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
+
             <TextView
                 android:id="@+id/tvTotalSeb"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
