@@ -46,107 +46,110 @@
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="24dp"-->
-    <!--        android:layout_marginEnd="24dp"-->
-    <!--        android:layout_marginTop="4dp"-->
-    <!--        android:layout_marginBottom="8dp">-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_margin="12dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/receiveCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:elevation="8dp"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/imgReceive"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/picreceive" />
+                    app:srcCompat="@drawable/ic_receive"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/txtReceive"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Receive money" />
+                    android:gravity="center"
+                    android:text="@string/receive" />
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/spendCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:elevation="8dp"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/imgSpend"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/picspend" />
+                    app:srcCompat="@drawable/ic_spend"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/txtSpend"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Spend money" />
+                    android:gravity="center"
+                    android:text="@string/spend" />
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/transferCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:elevation="8dp"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/imgTransfer"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/pictransfer" />
+                    app:srcCompat="@drawable/ic_transfer"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/txtTransfer"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transfer money" />
+                    android:gravity="center"
+                    android:text="@string/transfer" />
 
             </LinearLayout>
 

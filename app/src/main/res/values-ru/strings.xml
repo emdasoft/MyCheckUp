@@ -11,4 +11,7 @@
     <string name="mt_hint">Введите ваш остаток МТ</string>
     <string name="res_hint">Введите ваш остаток RES</string>
     <string name="total_title">Current balance</string>
+    <string name="receive">Receive</string>
+    <string name="spend">Spend</string>
+    <string name="transfer">Transfer</string>
 </resources>

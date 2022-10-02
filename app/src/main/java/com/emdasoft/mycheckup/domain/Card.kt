@@ -1,3 +1,9 @@
 package com.emdasoft.mycheckup.domain
 
-class Card (val title: String, val amount: Double, val currency: String, val description: String)
+data class Card (
+    val id: Int,
+    val title: String,
+    var amount: Double,
+    val currency: String,
+    val category: String
+)

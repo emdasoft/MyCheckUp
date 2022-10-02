@@ -12,4 +12,9 @@
     <string name="mt_hint">Enter your MT balance</string>
     <string name="res_hint">Enter your RES balance</string>
     <string name="total_title">Current balance</string>
+    <string name="receive">Receive</string>
+    <string name="spend">Spend</string>
+    <string name="transfer">Transfer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

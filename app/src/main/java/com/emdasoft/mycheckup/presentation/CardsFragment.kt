@@ -1,16 +1,18 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.CardsAdapter
+import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentCardsBinding
 import com.emdasoft.mycheckup.domain.Card
@@ -18,6 +20,7 @@ import kotlin.math.roundToInt
 
 class CardsFragment : Fragment(), CardsAdapter.Listener {
 
+    private val dataModel: DataModel by activityViewModels()
     private lateinit var binding: FragmentCardsBinding
     private lateinit var viewPager2: ViewPager2
 
@@ -35,18 +38,26 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            val cards: MutableList<Card> = ArrayList()
-            cards.add(Card("Cashalot", 52.23, "BYN", "POV"))
-            cards.add(Card("БелВЭБ", 156.89, "BYN", "POV"))
-            cards.add(Card("Наличные BYN", 96.0, "BYN", "POV"))
-            cards.add(Card("Резерв", 400.0, "BYN", "RES"))
-            cards.add(Card("МТ", 176.69, "BYN", "MT"))
-            cards.add(Card("Наличные USD", 2750.0, "USD", "SEB"))
-            cards.add(Card("Мелочь USD", 300.0, "USD", "SEB"))
-            cards.add(Card("Наличные EUR", 980.0, "EUR", "SEB"))
-            cards.add(Card("FinStore Инвестиции", 1020.0, "USD", "SEB"))
-            cards.add(Card("FinStore Доход", 3.52, "USD", "SEB"))
-            cards.add(Card("Отложенные BYN", 300.0, "BYN", "SEB"))
+            val cards: ArrayList<Card> = ArrayList()
+            cards.add(Card(0, "Cashalot", 52.23, "BYN", "POV"))
+            cards.add(Card(1, "БелВЭБ", 156.89, "BYN", "POV"))
+            cards.add(Card(2, "Наличные BYN", 96.0, "BYN", "POV"))
+            cards.add(Card(3, "Резерв", 400.0, "BYN", "RES"))
+            cards.add(Card(4, "МТ", 176.69, "BYN", "MT"))
+            cards.add(Card(5, "Наличные USD", 2750.0, "USD", "SEB"))
+            cards.add(Card(6, "Мелочь USD", 300.0, "USD", "SEB"))
+            cards.add(Card(7, "Наличные EUR", 980.0, "EUR", "SEB"))
+            cards.add(Card(8, "FinStore Инвестиции", 1020.0, "USD", "SEB"))
+            cards.add(Card(9, "FinStore Доход", 3.52, "USD", "SEB"))
+            cards.add(Card(10, "Отложенные BYN", 300.0, "BYN", "SEB"))
+
+            try {
+                dataModel.cardsList.value = cards
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Sorry Error!", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
 
             var total = 0.0
             var pov = 0.0
@@ -56,16 +67,16 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
 
 
             for (item in cards) {
-                if (item.description == "POV"){
+                if (item.category == "POV") {
                     pov += item.amount
                 }
-                if (item.description == "RES"){
+                if (item.category == "RES") {
                     res += item.amount
                 }
-                if (item.description == "MT"){
+                if (item.category == "MT") {
                     mt += item.amount
                 }
-                if (item.description == "SEB"){
+                if (item.category == "SEB") {
                     seb += item.amount
                 }
                 if (item.currency == "USD") {
@@ -112,7 +123,11 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         }
 
         binding.transferCard.setOnClickListener {
-            Toast.makeText(requireContext(), "Transfer money from one Card to another", Toast.LENGTH_SHORT).show()
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.placeHolder, TransferFragment.newInstance())
+                ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                ?.commit()
         }
     }
 

@@ -34,24 +34,28 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataModel.checkData.observe(activity as LifecycleOwner, {
+        dataModel.checkData.observe(activity as LifecycleOwner) {
             binding.sebTV.text = it[0]
             binding.resTV.text = it[1]
             binding.mtTV.text = it[2]
             binding.povTV.text = it[3]
-        })
+        }
 
         binding.apply {
 
             viewPager2 = viewPager
             val cards: MutableList<Card> = ArrayList()
-            cards.add(Card("Наличные USD", 2550.0, "USD", "1"))
-            cards.add(Card("Мелочь USD", 280.0, "USD", "2"))
-            cards.add(Card("Наличные EUR", 980.0, "EUR", "3"))
-            cards.add(Card("FinStore Инвестиции", 1020.0, "USD", "3"))
-            cards.add(Card("FinStore Доход", 22.52, "USD", "4"))
-            cards.add(Card("Вклады БелВЭБ", 404.69, "USD", "5"))
-            cards.add(Card("Отложенные BYN", 530.92, "BYN", "6"))
+            cards.add(Card(0, "Cashalot", 52.23, "BYN", "POV"))
+            cards.add(Card(1, "БелВЭБ", 156.89, "BYN", "POV"))
+            cards.add(Card(2, "Наличные BYN", 96.0, "BYN", "POV"))
+            cards.add(Card(3, "Резерв", 400.0, "BYN", "RES"))
+            cards.add(Card(4, "МТ", 176.69, "BYN", "MT"))
+            cards.add(Card(5, "Наличные USD", 2750.0, "USD", "SEB"))
+            cards.add(Card(6, "Мелочь USD", 300.0, "USD", "SEB"))
+            cards.add(Card(7, "Наличные EUR", 980.0, "EUR", "SEB"))
+            cards.add(Card(8, "FinStore Инвестиции", 1020.0, "USD", "SEB"))
+            cards.add(Card(9, "FinStore Доход", 3.52, "USD", "SEB"))
+            cards.add(Card(10, "Отложенные BYN", 300.0, "BYN", "SEB"))
 
             var total = 0.0
             for (item in cards){
@@ -65,7 +69,7 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
                     total += (item.amount * 1.04 * 100).roundToInt() / 100.00
                 }
             }
-            val tmpText = "Total amount ${total.toString()} USD"
+            val tmpText = "Total amount $total USD"
             tvTotal.text = tmpText
 
             viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
