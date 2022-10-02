@@ -1,4 +1,4 @@
-package com.emdasoft.mycheckup
+package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.emdasoft.mycheckup.CardsAdapter
+import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
+import com.emdasoft.mycheckup.domain.Card
 import kotlin.math.roundToInt
 
 class ResultFragment : Fragment(), CardsAdapter.Listener {

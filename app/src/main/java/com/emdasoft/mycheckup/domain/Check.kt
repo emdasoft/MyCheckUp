@@ -1,4 +1,4 @@
-package com.emdasoft.mycheckup
+package com.emdasoft.mycheckup.domain
 
 class Check {
 

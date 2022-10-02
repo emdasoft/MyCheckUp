@@ -7,7 +7,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/placeHolder"
-        android:name="com.emdasoft.mycheckup.MainFragment"
+        android:name="com.emdasoft.mycheckup.presentation.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.databinding.ItemCardBinding
+import com.emdasoft.mycheckup.domain.Card
 
 class CardsAdapter (
     cards: MutableList<Card>,

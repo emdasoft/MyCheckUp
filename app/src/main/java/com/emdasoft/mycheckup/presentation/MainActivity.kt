@@ -1,8 +1,9 @@
-package com.emdasoft.mycheckup
+package com.emdasoft.mycheckup.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.emdasoft.mycheckup
+package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.emdasoft.mycheckup.CardsAdapter
+import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentCardsBinding
+import com.emdasoft.mycheckup.domain.Card
 import kotlin.math.roundToInt
 
 class CardsFragment : Fragment(), CardsAdapter.Listener {
@@ -96,12 +99,20 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
             viewPager2.setPageTransformer(compositePageTransformer)
         }
 
-        binding.receiveButton.setOnClickListener {
+        binding.receiveCard.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.placeHolder, MainFragment.newInstance())
                 ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 ?.commit()
+        }
+
+        binding.spendCard.setOnClickListener {
+            Toast.makeText(requireContext(), "Spend My Money", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.transferCard.setOnClickListener {
+            Toast.makeText(requireContext(), "Transfer money from one Card to another", Toast.LENGTH_SHORT).show()
         }
     }
 

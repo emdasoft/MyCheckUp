@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".CardsFragment">
+    tools:context=".presentation.CardsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,10 +22,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/total_title"
             android:textColor="@color/title_color"
             android:textSize="18sp"
-            android:textStyle="normal"
-            android:text="@string/total_title" />
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/tvTotalBalance"
@@ -46,93 +46,121 @@
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="24dp"-->
+    <!--        android:layout_marginEnd="24dp"-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        android:layout_marginBottom="8dp">-->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="4dp">
+        android:gravity="center"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/receiveButton"
-            style="@style/My.Button"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/receiveCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="receive"
-            app:icon="@drawable/ic_baseline_add_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:elevation="15dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/spendButton" />
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp">
 
-        <Button
-            android:id="@+id/spendButton"
-            style="@style/My.Button"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgReceive"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/picreceive" />
+
+                <TextView
+                    android:id="@+id/txtReceive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Receive money" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/spendCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="spend"
-            app:icon="@drawable/ic_baseline_remove_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/receiveButton"
-            app:layout_constraintEnd_toStartOf="@+id/transferButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp">
 
-        <Button
-            android:id="@+id/transferButton"
-            style="@style/My.Button"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgSpend"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/picspend" />
+
+                <TextView
+                    android:id="@+id/txtSpend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spend money" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/transferCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="transfer"
-            app:icon="@drawable/ic_transfers"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/spendButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/imgTransfer"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/pictransfer" />
+
+                <TextView
+                    android:id="@+id/txtTransfer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transfer money" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/tvTotalPov"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvTotalRes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvTotalMt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvTotalSeb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
 
 </LinearLayout>
