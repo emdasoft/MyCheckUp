@@ -1,10 +1,11 @@
 package com.emdasoft.mycheckup.domain
 
-class TransferMoneyUseCase {
+class TransferMoneyUseCase(private val cardsRepository: CardsRepository) {
 
     fun transferMoney(amount: Double, source: Card, target: Card) {
-        source.amount -= amount
-        target.amount += amount
+
+        cardsRepository.transferMoney(amount, source, target)
 
     }
+
 }

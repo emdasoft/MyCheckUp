@@ -84,8 +84,6 @@ class TransferFragment : Fragment() {
         binding.transferButton.setOnClickListener {
             val amount = 10.0
 
-
-            TransferMoneyUseCase().transferMoney(amount, cardSource, cardTarget)
             println("${cardSource.amount} , ${cardTarget.amount}")
         }
 
