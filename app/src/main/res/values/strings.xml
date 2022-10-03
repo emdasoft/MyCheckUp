@@ -2,12 +2,19 @@
     <string name="app_name" translatable="false">MyCheckUp</string>
     <string name="income_hint">Enter your income</string>
     <string name="main_icon">Main Icon</string>
-    <string name="balance_hint">Enter your balance</string>
+    <string name="balance_hint">Enter your POV balance</string>
     <string name="btn_go" translatable="false">Go!</string>
     <string name="Error">Data was not entered or entered incorrectly</string>
     <string name="home_menu_btn">Home</string>
     <string name="cards_menu_btn">Cards</string>
     <string name="transfer_menu_btn">Transfers</string>
-    <string name="more_info">See details...</string>
+    <string name="more_info">See details…</string>
+    <string name="mt_hint">Enter your MT balance</string>
+    <string name="res_hint">Enter your RES balance</string>
+    <string name="total_title">Current balance</string>
+    <string name="receive">Receive</string>
+    <string name="spend">Spend</string>
+    <string name="transfer">Transfer</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

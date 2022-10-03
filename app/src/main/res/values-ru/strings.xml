@@ -2,10 +2,16 @@
 <resources>
     <string name="income_hint">Введите ваш доход</string>
     <string name="main_icon">Main Icon</string>
-    <string name="balance_hint">Введите ваш остаток</string>
+    <string name="balance_hint">Введите ваш остаток POV</string>
     <string name="Error">Данные не введены или введены некорректно!</string>
     <string name="home_menu_btn">Главная</string>
     <string name="cards_menu_btn">Счета</string>
     <string name="transfer_menu_btn">Переводы</string>
-    <string name="more_info">Подробнее...</string>
+    <string name="more_info">Подробнее…</string>
+    <string name="mt_hint">Введите ваш остаток МТ</string>
+    <string name="res_hint">Введите ваш остаток RES</string>
+    <string name="total_title">Current balance</string>
+    <string name="receive">Receive</string>
+    <string name="spend">Spend</string>
+    <string name="transfer">Transfer</string>
 </resources>
