@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentTransferBinding
 import com.emdasoft.mycheckup.domain.CardItem
 
@@ -31,7 +30,7 @@ class TransferFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var cards: ArrayList<CardItem> = ArrayList()
+        var cards: List<CardItem> = ArrayList()
 //        var titles: MutableList<String> = ArrayList<String>()
 
         dataModel.cardsList.observe(activity as LifecycleOwner) {

@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.emdasoft.mycheckup.CardsAdapter
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
 import com.emdasoft.mycheckup.domain.CardItem
 import kotlin.math.roundToInt

@@ -1,22 +1,21 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.emdasoft.mycheckup.CardsAdapter
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentCardsBinding
 import com.emdasoft.mycheckup.domain.CardItem
-import kotlin.math.roundToInt
 
 class CardsFragment : Fragment(), CardsAdapter.Listener {
 
@@ -38,70 +37,43 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            val cards: ArrayList<CardItem> = ArrayList()
-            cards.add(CardItem( "Cashalot", 0.00, "BYN", "POV"))
-            cards.add(CardItem( "БелВЭБ", 27.03, "BYN", "POV"))
-            cards.add(CardItem( "Наличные BYN", 2.50, "BYN", "POV"))
-            cards.add(CardItem( "Резерв", 400.0, "BYN", "RES"))
-            cards.add(CardItem( "МТ", 107.31, "BYN", "MT"))
-            cards.add(CardItem( "Наличные USD", 2950.0, "USD", "SEB"))
-            cards.add(CardItem( "Мелочь USD", 350.0, "USD", "SEB"))
-            cards.add(CardItem( "Наличные EUR", 980.0, "EUR", "SEB"))
-            cards.add(CardItem( "FinStore Инвестиции", 540.0, "USD", "SEB"))
-            cards.add(CardItem( "FinStore Доход", 1.52, "USD", "SEB"))
-            cards.add(CardItem( "Отложенные BYN", 500.0, "BYN", "SEB"))
-            cards.add(CardItem( "USD на карте", 518.19, "BYN", "SEB"))
+            var cards: List<CardItem>
 
-            try {
-                dataModel.cardsList.value = cards
-            } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Sorry Error!", Toast.LENGTH_SHORT)
-                    .show()
+
+            dataModel.cardsList.observe(activity as LifecycleOwner) {
+                cards = it
+                Log.d("MyLiveData", cards.toString())
+                viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
             }
 
+            dataModel.currentBalance.observe(activity as LifecycleOwner) {
+                val tmpText = "$ $it"
+                tvTotalBalance.text = tmpText
+            }
 
-            var total = 0.00
-            var pov = 0.00
-            var res = 0.00
-            var mt = 0.00
-            var seb = 0.00
-
-
-            for (item in cards) {
-                if (item.category == "POV") {
-                    pov += item.amount
+            dataModel.categoryBalance.observe(activity as LifecycleOwner) {
+                tvAmountSeb.text = buildString {
+                    append("USD ")
+                    append(it[0])
                 }
-                if (item.category == "RES") {
-                    res += item.amount
+                tvAmountRes.text = buildString {
+                    append("BYN ")
+                    append(it[1])
                 }
-                if (item.category == "MT") {
-                    mt += item.amount
+                tvAmountMt.text = buildString {
+                    append("BYN ")
+                    append(it[2])
                 }
-                if (item.category == "SEB") {
-                    seb += if(item.currency == "BYN"){
-                        item.amount / 2.5
-                    } else item.amount
-                }
-                if (item.currency == "USD") {
-                    total += item.amount
-                }
-                if (item.currency == "BYN") {
-                    total += item.amount / 2.5
-                }
-                if (item.currency == "EUR") {
-                    total += item.amount
+                tvAmountPov.text = buildString {
+                    append("BYN ")
+                    append(it[3])
                 }
             }
-            total = (total * 100).roundToInt() / 100.00
-            val tmpText = "$ $total"
-            tvTotalBalance.text = tmpText
-            seb = ((seb * 100).roundToInt() / 100).toDouble()
-            tvAmountSeb.text = "USD $seb"
-            tvAmountRes.text = "BYN $res"
-            tvAmountMt.text = "BYN $mt"
-            tvAmountPov.text = "BYN $pov"
 
-            viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
+            dataModel.getCardList()
+            dataModel.getCurrentBalance()
+            dataModel.getCategoryBalance()
+
 
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
