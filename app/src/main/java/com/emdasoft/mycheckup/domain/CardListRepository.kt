@@ -16,4 +16,6 @@ interface CardListRepository {
 
     fun transferMoney(amount: Double, source: CardItem, target: CardItem)
 
+    fun getCardList(): List<CardItem>
+
 }

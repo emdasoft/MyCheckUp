@@ -45,4 +45,8 @@ object CardListRepositoryImpl : CardListRepository {
         target.amount += amount
     }
 
+    override fun getCardList(): List<CardItem> {
+        return cardList.toList()
+    }
+
 }
