@@ -10,7 +10,7 @@ object CardListRepositoryImpl : CardListRepository {
 
 
     override fun addCard(card: CardItem) {
-        if (card.id == CardItem.UNDEFINED_ID){
+        if (card.id == CardItem.UNDEFINED_ID) {
             card.id = autoIncrementId++
         }
         cardList.add(card)
