@@ -117,6 +117,15 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
     }
 
     override fun onClick(card: CardItem) {
-        Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
+        dataModel.removeCardItem(card)
+        Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
+        activity?.supportFragmentManager
+            ?.beginTransaction()
+            ?.detach(this)
+            ?.replace(R.id.placeHolder, CardsFragment.newInstance())
+            ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+            ?.commit()
     }
+
 }

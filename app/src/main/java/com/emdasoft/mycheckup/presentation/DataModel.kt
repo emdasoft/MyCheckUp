@@ -31,7 +31,7 @@ open class DataModel : ViewModel() {
         MutableLiveData<String>()
     }
 
-    val categoryBalance : MutableLiveData<ArrayList<String>> by lazy {
+    val categoryBalance: MutableLiveData<ArrayList<String>> by lazy {
         MutableLiveData<ArrayList<String>>()
     }
 
@@ -48,6 +48,10 @@ open class DataModel : ViewModel() {
     fun getCategoryBalance() {
         val catBalance = getCategoryBalanceUseCase.getCategoryBalance()
         categoryBalance.value = catBalance
+    }
+
+    fun removeCardItem(cardItem: CardItem) {
+        removeCardItemUseCase.removeCard(cardItem)
     }
 
 }
