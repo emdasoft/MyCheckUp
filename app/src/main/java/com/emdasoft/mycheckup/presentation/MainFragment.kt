@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
                 )
                 activity?.supportFragmentManager
                     ?.beginTransaction()
-                    ?.replace(R.id.placeHolder, ResultFragment.newInstance())
+                    ?.replace(R.id.topPlaceHolder, ResultFragment.newInstance())
                     ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     ?.commit()
             } catch (e: Exception) {

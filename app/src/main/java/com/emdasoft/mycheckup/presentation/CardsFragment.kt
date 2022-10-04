@@ -1,7 +1,6 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +38,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
             viewPager2 = viewPager
             var cards: List<CardItem>
 
-
             dataModel.cardsList.observe(activity as LifecycleOwner) {
                 cards = it
                 viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
@@ -50,29 +48,8 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 tvTotalBalance.text = tmpText
             }
 
-            dataModel.categoryBalance.observe(activity as LifecycleOwner) {
-                tvAmountSeb.text = buildString {
-                    append("USD ")
-                    append(it[0])
-                }
-                tvAmountRes.text = buildString {
-                    append("BYN ")
-                    append(it[1])
-                }
-                tvAmountMt.text = buildString {
-                    append("BYN ")
-                    append(it[2])
-                }
-                tvAmountPov.text = buildString {
-                    append("BYN ")
-                    append(it[3])
-                }
-            }
-
             dataModel.getCardList()
             dataModel.getCurrentBalance()
-            dataModel.getCategoryBalance()
-
 
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
@@ -97,7 +74,7 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.receiveCard.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.placeHolder, MainFragment.newInstance())
+                ?.replace(R.id.topPlaceHolder, MainFragment.newInstance())
                 ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 ?.commit()
         }
@@ -109,7 +86,7 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.transferCard.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.placeHolder, TransferFragment.newInstance())
+                ?.replace(R.id.topPlaceHolder, TransferFragment.newInstance())
                 ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 ?.commit()
         }
