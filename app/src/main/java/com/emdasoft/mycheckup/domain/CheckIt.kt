@@ -8,30 +8,30 @@ class CheckIt {
 
             val result = arrayListOf<String>()
 
-            var seb: Double = num * 0.2
+            var saving: Double = num * 0.2
             var res: Double = num * 0.3
             var mt: Double = num * 0.2
-            var pov: Double = num * 0.3
+            var regular: Double = num * 0.3
 
-            if (ostPov + pov >= 500) {
-                pov = 500 - ostPov
-                res = num - (pov + seb + mt)
+            if (ostPov + regular >= 500) {
+                regular = 500 - ostPov
+                res = num - (regular + saving + mt)
             }
 
             if (mt + ostMt >= 500) {
                 mt = 500 - ostMt
-                res = num - (pov + seb + mt)
+                res = num - (regular + saving + mt)
             }
 
             if (res + ostRes >= 750) {
                 res = 750 - ostRes
-                seb = num - (pov + res + mt)
+                saving = num - (regular + res + mt)
             }
 
-            result.add(seb.toString())
+            result.add(saving.toString())
             result.add(res.toString())
             result.add(mt.toString())
-            result.add(pov.toString())
+            result.add(regular.toString())
 
             return result
 

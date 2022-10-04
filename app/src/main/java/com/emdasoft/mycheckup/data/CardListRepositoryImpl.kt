@@ -72,34 +72,37 @@ object CardListRepositoryImpl : CardListRepository {
     }
 
     override fun getCategoryBalance(): ArrayList<String> {
-        var pov = 0.00
-        var res = 0.00
-        var mt = 0.00
-        var seb = 0.00
+        var regular = 0.00
+        var reserve = 0.00
+        var service = 0.00
+        var saving = 0.00
         val result = arrayListOf<String>()
         for (item in cardList) {
             when (item.category) {
-                "POV" -> {
-                    pov += item.amount
+                "Regular" -> {
+                    regular += item.amount
                 }
-                "RES" -> {
-                    res += item.amount
+                "Reserve" -> {
+                    reserve += item.amount
                 }
-                "MT" -> {
-                    mt += item.amount
+                "ServiceMT" -> {
+                    service += item.amount
                 }
-                "SEB" -> {
-                    seb += if (item.currency == "BYN") {
+                "Saving" -> {
+                    saving += if (item.currency == "BYN") {
                         item.amount / 2.5
                     } else item.amount
                 }
             }
         }
-        seb = ((seb * 100).roundToInt() / 100).toDouble()
-        result.add(seb.toString())
-        result.add(res.toString())
-        result.add(mt.toString())
-        result.add(pov.toString())
+        saving = ((saving * 100).roundToInt() / 100).toDouble()
+        reserve = ((reserve * 100).roundToInt() / 100).toDouble()
+        service = ((service * 100).roundToInt() / 100).toDouble()
+        regular = ((regular * 100).roundToInt() / 100).toDouble()
+        result.add(saving.toString())
+        result.add(reserve.toString())
+        result.add(service.toString())
+        result.add(regular.toString())
         return result
     }
 

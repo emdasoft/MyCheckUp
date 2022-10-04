@@ -74,7 +74,8 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.receiveCard.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.topPlaceHolder, MainFragment.newInstance())
+                ?.detach(this)
+                ?.replace(R.id.topPlaceHolder, ReceiveFragment.newInstance())
                 ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 ?.commit()
         }
