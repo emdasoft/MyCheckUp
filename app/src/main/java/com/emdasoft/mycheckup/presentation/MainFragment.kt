@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentMainBinding
 import com.emdasoft.mycheckup.domain.CheckIt
@@ -38,7 +37,7 @@ class MainFragment : Fragment() {
                 )
                 activity?.supportFragmentManager
                     ?.beginTransaction()
-                    ?.replace(R.id.placeHolder, ResultFragment.newInstance())
+                    ?.replace(R.id.topPlaceHolder, ResultFragment.newInstance())
                     ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     ?.commit()
             } catch (e: Exception) {

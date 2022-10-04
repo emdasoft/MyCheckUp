@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentTransferBinding
 import com.emdasoft.mycheckup.domain.CardItem
 
@@ -31,63 +30,56 @@ class TransferFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var cards: ArrayList<CardItem> = ArrayList()
-//        var titles: MutableList<String> = ArrayList<String>()
+        var cards: List<CardItem> = ArrayList()
+
 
         dataModel.cardsList.observe(activity as LifecycleOwner) {
             cards = it
+            binding.spinnerSource.adapter =
+                ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
+            binding.spinnerTarget.adapter =
+                ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
         }
 
-//        for (card in cards) {
-//            titles.add(card.title)
-//        }
-
-        val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
-        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-
-        val adapter2 = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
-        adapter2.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-
-        binding.spinnerSource.adapter = adapter
-        binding.spinnerTarget.adapter = adapter2
-        var cardSource: CardItem = cards[0]
-        var cardTarget: CardItem = cards[0]
-
-        binding.spinnerSource.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>,
-                                        view: View, position: Int, id: Long) {
-                cardSource = cards[position]
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
-            }
-        }
-
-
-        binding.spinnerTarget.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>,
-                                        view: View, position: Int, id: Long) {
-                cardTarget = cards[position]
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
-            }
-        }
+        dataModel.getCardList()
 
         binding.transferButton.setOnClickListener {
             val amount = 10.0
+            var cardSource: CardItem
+            var cardTarget: CardItem
 
-            println("${cardSource.amount} , ${cardTarget.amount}")
+            binding.spinnerSource.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+                    cardSource = cards[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+
+            binding.spinnerTarget.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+                    cardTarget = cards[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+
+
         }
 
-
-
-
-        }
+    }
 
 
     companion object {

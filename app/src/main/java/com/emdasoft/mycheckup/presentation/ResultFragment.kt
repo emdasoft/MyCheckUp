@@ -1,6 +1,7 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.emdasoft.mycheckup.CardsAdapter
-import com.emdasoft.mycheckup.DataModel
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
 import com.emdasoft.mycheckup.domain.CardItem
 import kotlin.math.roundToInt
@@ -44,35 +43,17 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            val cards: MutableList<CardItem> = ArrayList()
-            cards.add(CardItem("Cashalot", 52.23, "BYN", "POV"))
-            cards.add(CardItem("БелВЭБ", 156.89, "BYN", "POV"))
-            cards.add(CardItem("Наличные BYN", 96.0, "BYN", "POV"))
-            cards.add(CardItem("Резерв", 400.0, "BYN", "RES"))
-            cards.add(CardItem("МТ", 176.69, "BYN", "MT"))
-            cards.add(CardItem("Наличные USD", 2750.0, "USD", "SEB"))
-            cards.add(CardItem("Мелочь USD", 300.0, "USD", "SEB"))
-            cards.add(CardItem("Наличные EUR", 980.0, "EUR", "SEB"))
-            cards.add(CardItem("FinStore Инвестиции", 1020.0, "USD", "SEB"))
-            cards.add(CardItem("FinStore Доход", 3.52, "USD", "SEB"))
-            cards.add(CardItem( "Отложенные BYN", 300.0, "BYN", "SEB"))
+            var cards: List<CardItem>
 
-            var total = 0.0
-            for (item in cards){
-                if(item.currency=="USD"){
-                    total += item.amount
-                }
-                if(item.currency=="BYN"){
-                    total += (item.amount / 2.5 * 100).roundToInt() / 100.00
-                }
-                if(item.currency=="EUR"){
-                    total += (item.amount * 1.04 * 100).roundToInt() / 100.00
-                }
+            dataModel.cardsList.observe(activity as LifecycleOwner) {
+                cards = it
+                viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
             }
-            val tmpText = "Total amount $total USD"
-            tvTotal.text = tmpText
 
-            viewPager2.adapter = CardsAdapter(cards, viewPager2, this@ResultFragment)
+            dataModel.currentBalance.observe(activity as LifecycleOwner) {
+                val tmpText = "$ $it"
+                tvTotal.text = tmpText
+            }
 
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
@@ -82,7 +63,7 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
 
             val compositePageTransformer = CompositePageTransformer()
             compositePageTransformer.addTransformer(MarginPageTransformer(30))
-            compositePageTransformer.addTransformer{ page, position ->
+            compositePageTransformer.addTransformer { page, position ->
                 val r = 1 - kotlin.math.abs(position)
                 page.scaleY = 0.8f + r * 0.1f
             }

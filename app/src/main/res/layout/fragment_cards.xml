@@ -8,13 +8,12 @@
     android:orientation="vertical"
     tools:context=".presentation.CardsFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:orientation="horizontal">
+        android:layout_marginEnd="48dp">
 
         <TextView
             android:id="@+id/tvTotalTitle"
@@ -25,21 +24,38 @@
             android:text="@string/total_title"
             android:textColor="@color/title_color"
             android:textSize="18sp"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvTotalBalance"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="48dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/ubuntu_medium"
             android:textColor="@color/title_color"
             android:textSize="24sp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/refreshBalance"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="$ 4.658,50" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/refreshBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_baseline_refresh_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -51,7 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/receiveCard"
@@ -73,7 +90,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_receive"
+                    app:srcCompat="@drawable/use12"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -90,10 +107,11 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/spendCard"
             android:layout_width="104dp"
-            android:layout_height="104dp"
+            android:layout_height="100dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:elevation="8dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="16dp"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
@@ -108,7 +126,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_spend"
+                    app:srcCompat="@drawable/use21"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -141,7 +159,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_transfer"
+                    app:srcCompat="@drawable/use31"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -157,120 +175,5 @@
 
     </LinearLayout>
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:layout_marginBottom="24dp"
-                android:text="Balance by category"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/firstcat"
-                    android:layout_marginEnd="16dp"/>
-
-                <TextView
-                    android:id="@+id/tvAmountSeb"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="24sp"
-                    tools:text="USD 4 300.00"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/secondcat"
-                    android:layout_marginEnd="16dp"/>
-
-                <TextView
-                    android:id="@+id/tvAmountRes"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="24sp"
-                    tools:text="BYN 500.00"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/thirdcat"
-                    android:layout_marginEnd="16dp"/>
-
-                <TextView
-                    android:id="@+id/tvAmountMt"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="24sp"
-                    tools:text="BYN 500.00"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="24dp">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/forthcat"
-                    android:layout_marginEnd="16dp"/>
-
-                <TextView
-                    android:id="@+id/tvAmountPov"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textSize="24sp"
-                    tools:text="BYN 500.00"/>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

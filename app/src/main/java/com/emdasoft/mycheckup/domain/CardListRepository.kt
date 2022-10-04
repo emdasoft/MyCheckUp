@@ -18,4 +18,8 @@ interface CardListRepository {
 
     fun getCardList(): List<CardItem>
 
+    fun getCurrentBalance(): String
+
+    fun getCategoryBalance(): ArrayList<String>
+
 }

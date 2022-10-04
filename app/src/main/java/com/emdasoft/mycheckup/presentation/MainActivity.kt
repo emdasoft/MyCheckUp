@@ -14,13 +14,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        openFragment(CardsFragment.newInstance())
+        openTopFragment(CardsFragment.newInstance())
+        openBottomFragment(CategoryFragment.newInstance())
     }
 
-    private fun openFragment(f: Fragment) {
+    private fun openTopFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.placeHolder, f)
+            .replace(R.id.topPlaceHolder, fragment)
+            .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+            .commit()
+    }
+
+    private fun openBottomFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.bottomPlaceHolder, fragment)
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .commit()
     }

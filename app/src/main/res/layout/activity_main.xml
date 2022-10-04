@@ -3,19 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/placeHolder"
+        android:id="@+id/topPlaceHolder"
         android:name="com.emdasoft.mycheckup.presentation.MainFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_cards" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bottomPlaceHolder"
+        android:name="com.emdasoft.mycheckup.presentation.MainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topPlaceHolder"
+        tools:layout="@layout/fragment_category" />
+
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/bottomNav"-->
 <!--        android:layout_width="0dp"-->
 <!--        android:layout_height="wrap_content"-->
