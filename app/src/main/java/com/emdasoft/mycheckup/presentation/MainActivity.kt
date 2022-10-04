@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         openFragment(CardsFragment.newInstance())
     }
 
-    private fun openFragment(f: Fragment) {
+    private fun openFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.placeHolder, f)
+            .replace(R.id.placeHolder, fragment)
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .commit()
     }

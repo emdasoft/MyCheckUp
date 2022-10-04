@@ -3,7 +3,6 @@ package com.emdasoft.mycheckup.presentation
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.emdasoft.mycheckup.data.CardListRepositoryImpl
-import com.emdasoft.mycheckup.data.CardsData
 import com.emdasoft.mycheckup.domain.*
 
 open class DataModel : ViewModel() {
@@ -52,6 +51,9 @@ open class DataModel : ViewModel() {
 
     fun removeCardItem(cardItem: CardItem) {
         removeCardItemUseCase.removeCard(cardItem)
+        getCardList()
+        getCurrentBalance()
+        getCategoryBalance()
     }
 
 }

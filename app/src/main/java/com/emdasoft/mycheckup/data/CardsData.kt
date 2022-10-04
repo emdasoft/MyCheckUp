@@ -14,8 +14,8 @@ object CardsData {
         CardItem( "Наличные USD", 2950.0, "USD", "SEB"),
         CardItem( "Мелочь USD", 350.0, "USD", "SEB"),
         CardItem( "Наличные EUR", 980.0, "EUR", "SEB"),
-        CardItem( "FinStore Инвестиции", 540.0, "USD", "SEB"),
-        CardItem( "FinStore Доход", 1.52, "USD", "SEB"),
+        CardItem( "FinStore Инвестиции", 740.0, "USD", "SEB"),
+        CardItem( "FinStore Доход", 1.75, "USD", "SEB"),
         CardItem( "Отложенные BYN", 500.0, "BYN", "SEB"),
         CardItem( "USD на карте", 518.19, "USD", "SEB")
     )

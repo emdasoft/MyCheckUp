@@ -6,10 +6,15 @@ import kotlin.math.roundToInt
 
 object CardListRepositoryImpl : CardListRepository {
 
-    //    private var cardList = mutableListOf<CardItem>()
-    private var cardList = CardsData.getCardsList() //временно, пока нет настоящих данных
+    private var cardList = mutableListOf<CardItem>()
     private var autoIncrementId = 0
 
+    //временно, пока нет настоящих данных, берем из готового списка
+    init {
+        for (item in CardsData.getCardsList()) {
+            addCard(item)
+        }
+    }
 
     override fun addCard(card: CardItem) {
         if (card.id == CardItem.UNDEFINED_ID) {

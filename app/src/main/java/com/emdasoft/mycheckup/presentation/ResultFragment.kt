@@ -64,7 +64,7 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
                     total += (item.amount / 2.5 * 100).roundToInt() / 100.00
                 }
                 if(item.currency=="EUR"){
-                    total += (item.amount * 1.04 * 100).roundToInt() / 100.00
+                    total += (item.amount * 100).roundToInt() / 100.00
                 }
             }
             val tmpText = "Total amount $total USD"
