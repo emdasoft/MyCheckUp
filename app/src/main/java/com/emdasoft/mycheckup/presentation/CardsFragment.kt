@@ -42,7 +42,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
 
             dataModel.cardsList.observe(activity as LifecycleOwner) {
                 cards = it
-                Log.d("MyLiveData", cards.toString())
                 viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
             }
 
@@ -88,6 +87,11 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 page.scaleY = 0.8f + r * 0.1f
             }
             viewPager2.setPageTransformer(compositePageTransformer)
+        }
+
+        binding.refreshBalance.setOnClickListener {
+            dataModel.getCurrentBalance()
+            Toast.makeText(requireContext(), "Balance refreshed", Toast.LENGTH_SHORT).show()
         }
 
         binding.receiveCard.setOnClickListener {

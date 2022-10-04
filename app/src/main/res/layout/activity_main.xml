@@ -15,7 +15,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_cards" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragmentContainerView"-->
+<!--        android:name="com.emdasoft.mycheckup.presentation.TransferFragment"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/bottomNav"-->
 <!--        android:layout_width="0dp"-->
 <!--        android:layout_height="wrap_content"-->

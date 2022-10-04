@@ -6,11 +6,11 @@ import com.emdasoft.mycheckup.domain.CardItem
 object CardsData {
 
     fun getCardsList() = mutableListOf(
-        CardItem("Cashalot", 0.00, "BYN", "POV"),
         CardItem("БелВЭБ", 27.03, "BYN", "POV"),
         CardItem("Наличные BYN", 2.50, "BYN", "POV"),
-        CardItem( "Резерв", 400.0, "BYN", "RES"),
+        CardItem("Cashalot", 0.00, "BYN", "POV"),
         CardItem( "МТ", 107.31, "BYN", "MT"),
+        CardItem( "Резерв", 400.0, "BYN", "RES"),
         CardItem( "Наличные USD", 2950.0, "USD", "SEB"),
         CardItem( "Мелочь USD", 350.0, "USD", "SEB"),
         CardItem( "Наличные EUR", 980.0, "EUR", "SEB"),

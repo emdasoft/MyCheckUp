@@ -52,7 +52,6 @@ open class DataModel : ViewModel() {
     fun removeCardItem(cardItem: CardItem) {
         removeCardItemUseCase.removeCard(cardItem)
         getCardList()
-        getCurrentBalance()
         getCategoryBalance()
     }
 
