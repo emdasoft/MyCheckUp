@@ -14,4 +14,5 @@
     <string name="receive">Receive</string>
     <string name="spend">Spend</string>
     <string name="transfer">Transfer</string>
+    <string name="balance_by_category">Balance by category</string>
 </resources>
