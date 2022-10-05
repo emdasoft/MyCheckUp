@@ -20,4 +20,5 @@
     <string name="edit_card">Edit</string>
     <string name="budget">Budget</string>
     <string name="enter_your_spending">Enter your spending</string>
+    <string name="enter_amount_of_transfer">Enter amount of transfer</string>
 </resources>

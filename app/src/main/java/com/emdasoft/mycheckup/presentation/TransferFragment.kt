@@ -1,12 +1,11 @@
 package com.emdasoft.mycheckup.presentation
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
@@ -30,52 +29,39 @@ class TransferFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var cards: List<CardItem> = ArrayList()
-
-
         dataModel.cardsList.observe(activity as LifecycleOwner) {
-            cards = it
-            binding.spinnerSource.adapter =
-                ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
-            binding.spinnerTarget.adapter =
-                ArrayAdapter(requireContext(), R.layout.simple_spinner_item, cards)
+            binding.spinnerSourceForTransfer.adapter =
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
+            binding.spinnerTargetForTransfer.adapter =
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
         }
 
         dataModel.getCardList()
 
         binding.transferButton.setOnClickListener {
-            val amount = 10.0
-            var cardSource: CardItem
-            var cardTarget: CardItem
 
-            binding.spinnerSource.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
-                    cardSource = cards[position]
-                }
+            try {
+//                val amount = binding.receiveTextInput.text.toString().toDouble()
+//                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
 
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
-                }
+                dataModel.transferMoney (
+                    binding.transferTextInput.text.toString().toDouble(),
+                    binding.spinnerSourceForTransfer.selectedItem as CardItem,
+                    binding.spinnerTargetForTransfer.selectedItem as CardItem
+                )
+
+                activity?.supportFragmentManager
+                    ?.beginTransaction()
+                    ?.detach(this)
+                    ?.replace(
+                        com.emdasoft.mycheckup.R.id.topPlaceHolder,
+                        CardsFragment.newInstance()
+                    )
+                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                    ?.commit()
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Data is incorrectly", Toast.LENGTH_SHORT).show()
             }
-
-            binding.spinnerTarget.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
-                    cardTarget = cards[position]
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
-                }
-            }
-
 
         }
 

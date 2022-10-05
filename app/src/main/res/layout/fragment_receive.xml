@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/tv_receive"
+                android:src="@drawable/fr_receive"
                 tools:ignore="ContentDescription" />
 
             <com.google.android.material.textfield.TextInputLayout
