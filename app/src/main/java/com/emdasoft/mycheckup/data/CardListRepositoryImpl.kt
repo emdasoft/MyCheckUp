@@ -95,10 +95,10 @@ object CardListRepositoryImpl : CardListRepository {
                 }
             }
         }
-        saving = ((saving * 100).roundToInt() / 100).toDouble()
-        reserve = ((reserve * 100).roundToInt() / 100).toDouble()
-        service = ((service * 100).roundToInt() / 100).toDouble()
-        regular = ((regular * 100).roundToInt() / 100).toDouble()
+        saving = (((saving * 100).roundToInt()) / 100.00)
+        reserve = (((reserve * 100).roundToInt()) / 100.00)
+        service = (((service * 100).roundToInt()) / 100.00)
+        regular = (((regular * 100).roundToInt()) / 100.00)
         result.add(saving.toString())
         result.add(reserve.toString())
         result.add(service.toString())
