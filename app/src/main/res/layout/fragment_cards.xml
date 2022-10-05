@@ -64,8 +64,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingBottom="8dp">
@@ -73,103 +73,65 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/receiveCard"
             android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
             android:elevation="8dp"
             app:cardCornerRadius="8dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/txtReceive"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:text="@string/receive"
+                app:drawableTopCompat="@drawable/tv_main_receive" />
 
-                <ImageView
-                    android:id="@+id/imgReceive"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/use12"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/txtReceive"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/receive" />
-
-            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/spendCard"
-            android:layout_width="104dp"
-            android:layout_height="100dp"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="4dp"
             android:elevation="16dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
             app:cardCornerRadius="8dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/txtSpend"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/spend"
+                app:drawableTopCompat="@drawable/tv_spend" />
 
-                <ImageView
-                    android:id="@+id/imgSpend"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/use21"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/txtSpend"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/spend" />
-
-            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/transferCard"
             android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
             android:elevation="8dp"
             app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:id="@+id/imgTransfer"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/use31"
-                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/txtTransfer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="@string/transfer" />
+                    android:text="@string/transfer"
+                    app:drawableTopCompat="@drawable/tv_transfer" />
 
-            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 

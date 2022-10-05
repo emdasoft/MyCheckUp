@@ -27,20 +27,24 @@ class CategoryFragment : Fragment() {
         binding.apply {
             dataModel.categoryBalance.observe(activity as LifecycleOwner) {
                 tvAmountSeb.text = buildString {
-                    append("USD ")
+                    append("Saving: ")
                     append(it[0])
+                    append(" USD")
                 }
                 tvAmountRes.text = buildString {
-                    append("BYN ")
+                    append("Reserve: ")
                     append(it[1])
+                    append(" BYN")
                 }
                 tvAmountMt.text = buildString {
-                    append("BYN ")
+                    append("ServiceMT: ")
                     append(it[2])
+                    append(" BYN")
                 }
                 tvAmountPov.text = buildString {
-                    append("BYN ")
+                    append("Regular: ")
                     append(it[3])
+                    append(" BYN")
                 }
             }
 

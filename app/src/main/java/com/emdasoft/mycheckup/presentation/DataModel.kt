@@ -55,5 +55,16 @@ open class DataModel : ViewModel() {
         getCategoryBalance()
     }
 
+    fun receiveMoney(amount: Double, cardItem: CardItem) {
+        receiveMoneyUseCase.receiveMoney(amount, cardItem)
+        getCardList()
+        getCategoryBalance()
+    }
+
+    fun spendMoney(amount: Double, cardItem: CardItem) {
+        spendMoneyUseCase.spendMoney(amount, cardItem)
+        getCardList()
+        getCategoryBalance()
+    }
 
 }

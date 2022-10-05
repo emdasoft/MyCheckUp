@@ -27,22 +27,23 @@ class CardsAdapter(
         fun bind(card: CardItem, listener: Listener) = with(binding) {
             tvCardLabel.text = card.title
             when (card.category) {
-                "POV" -> {
+                "Regular" -> {
                     cardItem.setBackgroundResource(backgrounds[0])
                 }
-                "RES" -> {
+                "Reserve" -> {
                     cardItem.setBackgroundResource(backgrounds[1])
                 }
-                "SEB" -> {
+                "Saving" -> {
                     cardItem.setBackgroundResource(backgrounds[2])
                 }
-                "MT" -> {
+                "ServiceMT" -> {
                     cardItem.setBackgroundResource(backgrounds[3])
                 }
             }
             tvCardAmount.text = card.amount.toString()
             tvCardCurrency.text = card.currency
-            tvDescription.text = itemView.context.getText(R.string.more_info)
+//            tvDescription.text = itemView.context.getText(R.string.more_info)
+            tvDescription.text = card.category
             itemView.setOnClickListener {
                 listener.onClick(card)
             }

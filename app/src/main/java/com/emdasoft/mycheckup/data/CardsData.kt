@@ -6,17 +6,17 @@ import com.emdasoft.mycheckup.domain.CardItem
 object CardsData {
 
     fun getCardsList() = mutableListOf(
-        CardItem("БелВЭБ", 27.03, "BYN", "POV"),
-        CardItem("Наличные BYN", 2.50, "BYN", "POV"),
-        CardItem("Cashalot", 0.00, "BYN", "POV"),
-        CardItem( "МТ", 107.31, "BYN", "MT"),
-        CardItem( "Резерв", 400.0, "BYN", "RES"),
-        CardItem( "Наличные USD", 2950.0, "USD", "SEB"),
-        CardItem( "Мелочь USD", 350.0, "USD", "SEB"),
-        CardItem( "Наличные EUR", 980.0, "EUR", "SEB"),
-        CardItem( "FinStore Инвестиции", 740.0, "USD", "SEB"),
-        CardItem( "FinStore Доход", 1.75, "USD", "SEB"),
-        CardItem( "Отложенные BYN", 500.0, "BYN", "SEB"),
-        CardItem( "USD на карте", 518.19, "USD", "SEB")
+        CardItem("БелВЭБ", 7.03, "BYN", "Regular"),
+        CardItem("Наличные BYN", 22.50, "BYN", "Regular"),
+        CardItem("Cashalot", 0.00, "BYN", "Regular"),
+        CardItem( "МТ", 107.31, "BYN", "ServiceMT"),
+        CardItem( "Резерв", 400.0, "BYN", "Reserve"),
+        CardItem( "Наличные USD", 2950.0, "USD", "Saving"),
+        CardItem( "Мелочь USD", 350.0, "USD", "Saving"),
+        CardItem( "Наличные EUR", 980.0, "EUR", "Saving"),
+        CardItem( "FinStore Инвестиции", 740.0, "USD", "Saving"),
+        CardItem( "FinStore Доход", 1.75, "USD", "Saving"),
+        CardItem( "Отложенные BYN", 500.0, "BYN", "Saving"),
+        CardItem( "USD на карте", 718.19, "USD", "Saving")
     )
 }
