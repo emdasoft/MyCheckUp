@@ -72,24 +72,15 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         }
 
         binding.receiveCard.setOnClickListener {
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.detach(this)
-                ?.replace(R.id.topPlaceHolder, ReceiveFragment.newInstance())
-                ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                ?.commit()
+            openFragment(ReceiveFragment.newInstance(), R.id.topPlaceHolder)
         }
 
         binding.spendCard.setOnClickListener {
-            Toast.makeText(requireContext(), "Spend My Money", Toast.LENGTH_SHORT).show()
+            openFragment(SpendFragment.newInstance(), R.id.topPlaceHolder)
         }
 
         binding.transferCard.setOnClickListener {
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.topPlaceHolder, TransferFragment.newInstance())
-                ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                ?.commit()
+            openFragment(TransferFragment.newInstance(), R.id.topPlaceHolder)
         }
     }
 
@@ -103,4 +94,13 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
     }
 
+    private fun openFragment(fragment: Fragment, placeHolder: Int) {
+        activity?.supportFragmentManager
+            ?.beginTransaction()
+            ?.replace(placeHolder, fragment)
+            ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+            ?.commit()
+    }
+
 }
+

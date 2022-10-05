@@ -22,4 +22,5 @@
     <string name="add_card">Add</string>
     <string name="edit_card">Edit</string>
     <string name="budget">Budget</string>
+    <string name="enter_your_spending">Enter your spending</string>
 </resources>
