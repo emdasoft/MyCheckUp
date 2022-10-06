@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ReceiveFragment">
+    tools:context=".presentation.SpendFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -29,11 +29,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/fr_receive"
+                android:src="@drawable/fr_spend"
                 tools:ignore="ContentDescription" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/receiveInput"
+                android:id="@+id/spendInput"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,17 +42,17 @@
                 android:layout_marginEnd="40dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/receiveTextInput"
+                    android:id="@+id/spendTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/income_hint"
+                    android:hint="@string/enter_your_spending"
                     android:inputType="numberDecimal"
                     android:maxLines="1"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
-                android:id="@+id/spinnerSourceForReceive"
+                android:id="@+id/spinnerSourceForSpend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -62,14 +62,14 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:id="@+id/receiveButton"
+                android:id="@+id/spendButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/receive"/>
+                android:text="@string/spend"/>
 
         </LinearLayout>
 

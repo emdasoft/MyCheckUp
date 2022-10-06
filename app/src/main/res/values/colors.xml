@@ -10,4 +10,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="btn_color">#B2DAED</color>
     <color name="menu_bgr">#e6e6e6</color>
+
+    <color name="bottom_bar_indicator_color">#5A88E5</color>
+    <color name="bottom_bar_icon_tint">#CFD0E2</color>
+    <color name="bottom_bar_icon_tint_active">#FFFFFF</color>
+    <color name="bottom_bar_text_color">#FFFFFF</color>
+    <color name="background_bottom_navigation">#FFFFFF</color>
+
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/menuAddCard"
+        android:icon="@drawable/ic_add_card"
+        android:title="@string/add_card"/>
+
+    <item
+        android:id="@+id/menuEdit"
+        android:icon="@drawable/ic_edit_card"
+        android:title="@string/edit_card"/>
+
+    <item
+        android:id="@+id/menuBudget"
+        android:icon="@drawable/ic_budget"
+        android:title="@string/budget"/>
+
+
+</menu>

@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentMainBinding
-import com.emdasoft.mycheckup.domain.CheckIt
 import java.lang.Exception
 
 class MainFragment : Fragment() {

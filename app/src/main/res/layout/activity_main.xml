@@ -12,12 +12,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.48"
+        app:layout_constraintGuide_percent="0.45"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topPlaceHolder"
-        android:name="com.emdasoft.mycheckup.presentation.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
@@ -28,7 +27,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottomPlaceHolder"
-        android:name="com.emdasoft.mycheckup.presentation.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
@@ -36,15 +34,38 @@
         app:layout_constraintTop_toBottomOf="@id/guideline3"
         tools:layout="@layout/fragment_category" />
 
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/menu_bgr"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fullPlaceHolder"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        tools:layout="@layout/fragment_category" />
+
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:elevation="@dimen/_2sdp"
+        app:cornerRadius="@dimen/_8sdp"
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@color/menu_bgr"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:backgroundColor="@color/background_bottom_navigation"
+        app:iconSize="@dimen/_18sdp"
+        app:iconTint="@color/bottom_bar_icon_tint"
+        app:iconTintActive="@color/bottom_bar_icon_tint_active"
+        app:indicatorColor="@color/bottom_bar_indicator_color"
+        app:indicatorRadius="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:textSize="@dimen/_10ssp"
+        app:menu="@menu/menu_bottom_navigation"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

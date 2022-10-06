@@ -11,7 +11,6 @@ open class DataModel : ViewModel() {
 
     private val getCardListUseCase = GetCardListUseCase(repository)
     private val removeCardItemUseCase = RemoveCardItemUseCase(repository)
-    private val editCardItemUseCase = EditCardItemUseCase(repository)
     private val receiveMoneyUseCase = ReceiveMoneyUseCase(repository)
     private val spendMoneyUseCase = SpendMoneyUseCase(repository)
     private val transferMoneyUseCase = TransferMoneyUseCase(repository)
@@ -63,6 +62,12 @@ open class DataModel : ViewModel() {
 
     fun spendMoney(amount: Double, cardItem: CardItem) {
         spendMoneyUseCase.spendMoney(amount, cardItem)
+        getCardList()
+        getCategoryBalance()
+    }
+
+    fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
+        transferMoneyUseCase.transferMoney(amount, source, target)
         getCardList()
         getCategoryBalance()
     }

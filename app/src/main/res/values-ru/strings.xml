@@ -15,4 +15,10 @@
     <string name="spend">Spend</string>
     <string name="transfer">Transfer</string>
     <string name="balance_by_category">Balance by category</string>
+    <string name="home">Home</string>
+    <string name="add_card">Add</string>
+    <string name="edit_card">Edit</string>
+    <string name="budget">Budget</string>
+    <string name="enter_your_spending">Enter your spending</string>
+    <string name="enter_amount_of_transfer">Enter amount of transfer</string>
 </resources>

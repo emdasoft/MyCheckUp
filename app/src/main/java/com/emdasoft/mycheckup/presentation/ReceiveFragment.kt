@@ -29,12 +29,9 @@ class ReceiveFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var cards: List<CardItem>
-
         dataModel.cardsList.observe(activity as LifecycleOwner) {
-            cards = it
             binding.spinnerSourceForReceive.adapter =
-                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, cards)
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
         }
 
         dataModel.getCardList()
@@ -42,15 +39,21 @@ class ReceiveFragment : Fragment() {
         binding.receiveButton.setOnClickListener {
 
             try {
-                val amount = binding.receiveTextInput.text.toString().toDouble()
-                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
+//                val amount = binding.receiveTextInput.text.toString().toDouble()
+//                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
 
-                dataModel.receiveMoney(amount, cardSource)
+                dataModel.receiveMoney(
+                    binding.receiveTextInput.text.toString().toDouble(),
+                    binding.spinnerSourceForReceive.selectedItem as CardItem
+                )
 
                 activity?.supportFragmentManager
                     ?.beginTransaction()
                     ?.detach(this)
-                    ?.replace(com.emdasoft.mycheckup.R.id.topPlaceHolder, CardsFragment.newInstance())
+                    ?.replace(
+                        com.emdasoft.mycheckup.R.id.topPlaceHolder,
+                        CardsFragment.newInstance()
+                    )
                     ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     ?.commit()
             } catch (e: Exception) {
