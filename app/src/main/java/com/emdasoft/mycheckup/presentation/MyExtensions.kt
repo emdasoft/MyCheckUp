@@ -15,8 +15,8 @@ fun Fragment.openFragment(fragment: Fragment, placeHolder: Int) {
 fun Fragment.openFragmentWithDetach(fragment: Fragment, placeHolder: Int) {
     activity?.supportFragmentManager
         ?.beginTransaction()
-        ?.detach(this)
         ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+        ?.detach(this)
         ?.replace(placeHolder, fragment)
         ?.commit()
 }

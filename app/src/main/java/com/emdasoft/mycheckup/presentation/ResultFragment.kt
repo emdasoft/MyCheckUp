@@ -27,12 +27,27 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dataModel.budget.observe(activity as LifecycleOwner) {
-            binding.tvBudgetSaving.text = it[0]
-            binding.tvBudgetReserve.text = it[1]
-            binding.tvAmountServiceMT.text = it[2]
-            binding.tvAmountRegular.text = it[3]
+            binding.tvBudgetSaving.text = buildString {
+                append("to Saving: ")
+                append(it[0])
+                append(" BYN")
+            }
+            binding.tvBudgetReserve.text = buildString {
+                append("to Reserve: ")
+                append(it[1])
+                append(" BYN")
+            }
+            binding.tvAmountServiceMT.text = buildString {
+                append("to ServiceMT: ")
+                append(it[2])
+                append(" BYN")
+            }
+            binding.tvAmountRegular.text = buildString {
+                append("to Regular: ")
+                append(it[3])
+                append(" BYN")
+            }
         }
-
     }
 
     companion object {

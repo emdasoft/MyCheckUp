@@ -74,7 +74,8 @@ open class DataModel : ViewModel() {
     }
 
     fun getBudget(receiveAmount: Double) {
-        TODO()
+        val budgetByCategory = getBudgetUseCase.getBudget(receiveAmount)
+        budget.value = budgetByCategory
     }
 
 }

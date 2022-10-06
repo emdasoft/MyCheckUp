@@ -31,12 +31,9 @@ class MainFragment : Fragment() {
                 dataModel.getBudget(
                     binding.incomeTextInput.text.toString().toDouble()
                 )
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.detach(this)
-                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    ?.replace(R.id.topPlaceHolder, CardsFragment.newInstance())
-                    ?.commit()
+                openFragment(ResultFragment.newInstance(), R.id.bottomPlaceHolder)
+                DismissKeyboard().dismissKeyboard(activity as MainActivity)
+
             } catch (e: Exception) {
                 Toast.makeText(
                     requireContext(),
