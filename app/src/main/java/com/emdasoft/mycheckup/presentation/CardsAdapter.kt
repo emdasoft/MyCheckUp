@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.ItemCardBinding
 import com.emdasoft.mycheckup.domain.CardItem
+import kotlin.math.roundToInt
 
 class CardsAdapter(
     private var cards: List<CardItem>,
@@ -38,7 +39,8 @@ class CardsAdapter(
                     cardItem.setBackgroundResource(backgrounds[3])
                 }
             }
-            tvCardAmount.text = card.amount.toString()
+            val amount = ((card.amount * 100).roundToInt() / 100.00).toString()
+            tvCardAmount.text = amount
             tvCardCurrency.text = card.currency
 //            tvDescription.text = itemView.context.getText(R.string.more_info)
             tvDescription.text = card.category

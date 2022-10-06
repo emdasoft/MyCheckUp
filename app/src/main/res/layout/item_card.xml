@@ -22,6 +22,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck"
             tools:text="Simple wallet" />
 
         <TextView
@@ -61,6 +62,7 @@
             android:textColor="#DFDCDC"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvCardAmount"
+            tools:ignore="TextContrastCheck"
             tools:text="See details" />
 
 
