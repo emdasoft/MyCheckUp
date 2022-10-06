@@ -11,13 +11,12 @@ open class DataModel : ViewModel() {
 
     private val getCardListUseCase = GetCardListUseCase(repository)
     private val removeCardItemUseCase = RemoveCardItemUseCase(repository)
-    private val receiveMoneyUseCase = ReceiveMoneyUseCase(repository)
-    private val spendMoneyUseCase = SpendMoneyUseCase(repository)
-    private val transferMoneyUseCase = TransferMoneyUseCase(repository)
     private val getCategoryBalanceUseCase = GetCategoryBalanceUseCase(repository)
     private val getCurrentBalanceUseCase = GetCurrentBalanceUseCase(repository)
+    private val getBudgetUseCase = GetBudgetUseCase(repository)
+    private val editCardItemUseCase = EditCardItemUseCase(repository)
 
-    val checkData: MutableLiveData<List<String>> by lazy {
+    val budget: MutableLiveData<List<String>> by lazy {
         MutableLiveData<List<String>>()
     }
 
@@ -35,7 +34,7 @@ open class DataModel : ViewModel() {
 
     fun getCardList() {
         val list = getCardListUseCase.getCardList()
-        cardsList.value = list
+        cardsList.value = list.sortedBy { it.id}
     }
 
     fun getCurrentBalance() {
@@ -55,21 +54,33 @@ open class DataModel : ViewModel() {
     }
 
     fun receiveMoney(amount: Double, cardItem: CardItem) {
-        receiveMoneyUseCase.receiveMoney(amount, cardItem)
+        val newAmount = cardItem.amount + amount
+        val newItem = cardItem.copy(amount = newAmount)
+        editCardItemUseCase.editCard(newItem)
         getCardList()
         getCategoryBalance()
     }
 
     fun spendMoney(amount: Double, cardItem: CardItem) {
-        spendMoneyUseCase.spendMoney(amount, cardItem)
+        val newAmount = cardItem.amount - amount
+        val newItem = cardItem.copy(amount = newAmount)
+        editCardItemUseCase.editCard(newItem)
         getCardList()
         getCategoryBalance()
     }
 
     fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
-        transferMoneyUseCase.transferMoney(amount, source, target)
+        spendMoney(amount, source)
+        receiveMoney(amount, target)
         getCardList()
         getCategoryBalance()
+        getCardList()
+        getCategoryBalance()
+    }
+
+    fun getBudget(receiveAmount: Double) {
+        val budgetByCategory = getBudgetUseCase.getBudget(receiveAmount)
+        budget.value = budgetByCategory
     }
 
 }

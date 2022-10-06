@@ -39,23 +39,15 @@ class ReceiveFragment : Fragment() {
         binding.receiveButton.setOnClickListener {
 
             try {
-//                val amount = binding.receiveTextInput.text.toString().toDouble()
-//                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
-
                 dataModel.receiveMoney(
                     binding.receiveTextInput.text.toString().toDouble(),
                     binding.spinnerSourceForReceive.selectedItem as CardItem
                 )
+                openFragmentWithDetach(
+                    CardsFragment.newInstance(),
+                    com.emdasoft.mycheckup.R.id.topPlaceHolder
+                )
 
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.detach(this)
-                    ?.replace(
-                        com.emdasoft.mycheckup.R.id.topPlaceHolder,
-                        CardsFragment.newInstance()
-                    )
-                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    ?.commit()
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Data is incorrectly", Toast.LENGTH_SHORT).show()
             }

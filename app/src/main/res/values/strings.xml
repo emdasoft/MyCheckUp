@@ -22,4 +22,5 @@
     <string name="budget">Budget</string>
     <string name="enter_your_spending">Enter your spending</string>
     <string name="enter_amount_of_transfer">Enter amount of transfer</string>
+    <string name="yor_budget_by_category">Yor Budget by category</string>
 </resources>

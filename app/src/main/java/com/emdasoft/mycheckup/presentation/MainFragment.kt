@@ -28,17 +28,12 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnGo.setOnClickListener {
             try {
-                dataModel.checkData.value = CheckIt.checkIt(
-                    binding.incomeTextInput.text.toString().toDouble(),
-                    binding.balancePovTextInput.text.toString().toDouble(),
-                    binding.balanceMtTextInput.text.toString().toDouble(),
-                    binding.balanceResTextInput.text.toString().toDouble()
+                dataModel.getBudget(
+                    binding.incomeTextInput.text.toString().toDouble()
                 )
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.topPlaceHolder, ResultFragment.newInstance())
-                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    ?.commit()
+                openFragment(ResultFragment.newInstance(), R.id.bottomPlaceHolder)
+                DismissKeyboard().dismissKeyboard(activity as MainActivity)
+
             } catch (e: Exception) {
                 Toast.makeText(
                     requireContext(),
@@ -53,4 +48,5 @@ class MainFragment : Fragment() {
         @JvmStatic
         fun newInstance() = MainFragment()
     }
+
 }

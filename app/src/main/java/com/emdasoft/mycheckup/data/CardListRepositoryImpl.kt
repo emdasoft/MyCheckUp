@@ -39,19 +39,6 @@ object CardListRepositoryImpl : CardListRepository {
         } ?: throw RuntimeException("Element with id $cardId not found!")
     }
 
-    override fun receiveMoney(amount: Double, card: CardItem) {
-        card.amount += amount
-    }
-
-    override fun spendMoney(amount: Double, card: CardItem) {
-        card.amount -= amount
-    }
-
-    override fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
-        source.amount -= amount
-        target.amount += amount
-    }
-
     override fun getCardList(): List<CardItem> {
         return cardList.toList()
     }
@@ -106,8 +93,18 @@ object CardListRepositoryImpl : CardListRepository {
         return result
     }
 
+
     override fun getBudget(receiveAmount: Double): ArrayList<String> {
-        TODO("Not yet implemented")
+        val toSaving = ((receiveAmount * 0.2) * 100).roundToInt() / 100.00
+        val toReserve = ((receiveAmount * 0.3) * 100).roundToInt() / 100.00
+        val toServiceMT = ((receiveAmount * 0.15) * 100).roundToInt() / 100.00
+        val toRegular = ((receiveAmount * 0.35) * 100).roundToInt() / 100.00
+        val result = arrayListOf<String>()
+        result.add(toSaving.toString())
+        result.add(toReserve.toString())
+        result.add(toServiceMT.toString())
+        result.add(toRegular.toString())
+        return result
     }
 
 }

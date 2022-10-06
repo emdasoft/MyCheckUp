@@ -36,11 +36,9 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            var cards: List<CardItem>
 
             dataModel.cardsList.observe(activity as LifecycleOwner) {
-                cards = it
-                viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
+                viewPager2.adapter = CardsAdapter(it, viewPager2, this@CardsFragment)
             }
 
             dataModel.currentBalance.observe(activity as LifecycleOwner) {
@@ -92,14 +90,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
     override fun onClick(card: CardItem) {
         dataModel.removeCardItem(card)
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun openFragment(fragment: Fragment, placeHolder: Int) {
-        activity?.supportFragmentManager
-            ?.beginTransaction()
-            ?.replace(placeHolder, fragment)
-            ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-            ?.commit()
     }
 
 }
