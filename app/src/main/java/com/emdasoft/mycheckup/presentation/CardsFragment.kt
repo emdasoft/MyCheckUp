@@ -94,6 +94,5 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
     }
 
-
 }
 
