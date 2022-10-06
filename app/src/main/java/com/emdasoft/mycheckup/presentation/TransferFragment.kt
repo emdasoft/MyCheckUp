@@ -41,24 +41,17 @@ class TransferFragment : Fragment() {
         binding.transferButton.setOnClickListener {
 
             try {
-//                val amount = binding.receiveTextInput.text.toString().toDouble()
-//                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
-
-                dataModel.transferMoney (
+                dataModel.transferMoney(
                     binding.transferTextInput.text.toString().toDouble(),
                     binding.spinnerSourceForTransfer.selectedItem as CardItem,
                     binding.spinnerTargetForTransfer.selectedItem as CardItem
                 )
 
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.detach(this)
-                    ?.replace(
-                        com.emdasoft.mycheckup.R.id.topPlaceHolder,
-                        CardsFragment.newInstance()
-                    )
-                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    ?.commit()
+                openFragmentWithDetach(
+                    CardsFragment.newInstance(),
+                    com.emdasoft.mycheckup.R.id.topPlaceHolder,
+                )
+
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Data is incorrectly", Toast.LENGTH_SHORT).show()
             }

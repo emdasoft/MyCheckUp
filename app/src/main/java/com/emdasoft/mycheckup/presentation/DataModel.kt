@@ -16,8 +16,9 @@ open class DataModel : ViewModel() {
     private val transferMoneyUseCase = TransferMoneyUseCase(repository)
     private val getCategoryBalanceUseCase = GetCategoryBalanceUseCase(repository)
     private val getCurrentBalanceUseCase = GetCurrentBalanceUseCase(repository)
+    private val getBudgetUseCase = GetBudgetUseCase(repository)
 
-    val checkData: MutableLiveData<List<String>> by lazy {
+    val budget: MutableLiveData<List<String>> by lazy {
         MutableLiveData<List<String>>()
     }
 
@@ -70,6 +71,10 @@ open class DataModel : ViewModel() {
         transferMoneyUseCase.transferMoney(amount, source, target)
         getCardList()
         getCategoryBalance()
+    }
+
+    fun getBudget(receiveAmount: Double) {
+        TODO()
     }
 
 }

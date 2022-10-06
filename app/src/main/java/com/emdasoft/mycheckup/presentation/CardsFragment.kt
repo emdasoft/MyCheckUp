@@ -94,13 +94,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
     }
 
-    private fun openFragment(fragment: Fragment, placeHolder: Int) {
-        activity?.supportFragmentManager
-            ?.beginTransaction()
-            ?.replace(placeHolder, fragment)
-            ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-            ?.commit()
-    }
 
 }
 

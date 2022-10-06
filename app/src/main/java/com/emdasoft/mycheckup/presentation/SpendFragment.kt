@@ -1,6 +1,5 @@
 package com.emdasoft.mycheckup.presentation
 
-import android.R
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,7 +30,7 @@ class SpendFragment : Fragment() {
 
         dataModel.cardsList.observe(activity as LifecycleOwner) {
             binding.spinnerSourceForSpend.adapter =
-                ArrayAdapter(requireContext(), R.layout.simple_spinner_item, it)
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
         }
 
         dataModel.getCardList()
@@ -39,23 +38,16 @@ class SpendFragment : Fragment() {
         binding.spendButton.setOnClickListener {
 
             try {
-//                val amount = binding.receiveTextInput.text.toString().toDouble()
-//                val cardSource: CardItem = binding.spinnerSourceForReceive.selectedItem as CardItem
 
                 dataModel.spendMoney(
                     binding.spendTextInput.text.toString().toDouble(),
                     binding.spinnerSourceForSpend.selectedItem as CardItem
                 )
+                openFragmentWithDetach(
+                    CardsFragment.newInstance(),
+                    com.emdasoft.mycheckup.R.id.topPlaceHolder
+                )
 
-                activity?.supportFragmentManager
-                    ?.beginTransaction()
-                    ?.detach(this)
-                    ?.replace(
-                        com.emdasoft.mycheckup.R.id.topPlaceHolder,
-                        CardsFragment.newInstance()
-                    )
-                    ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    ?.commit()
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Data is incorrectly", Toast.LENGTH_SHORT).show()
 
