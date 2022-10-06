@@ -39,19 +39,6 @@ object CardListRepositoryImpl : CardListRepository {
         } ?: throw RuntimeException("Element with id $cardId not found!")
     }
 
-    override fun receiveMoney(amount: Double, card: CardItem) {
-        card.amount += amount
-    }
-
-    override fun spendMoney(amount: Double, card: CardItem) {
-        card.amount -= amount
-    }
-
-    override fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
-        source.amount -= amount
-        target.amount += amount
-    }
-
     override fun getCardList(): List<CardItem> {
         return cardList.toList()
     }
