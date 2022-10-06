@@ -23,4 +23,19 @@
     <string name="enter_your_spending">Enter your spending</string>
     <string name="enter_amount_of_transfer">Enter amount of transfer</string>
     <string name="yor_budget_by_category">Yor Budget by category</string>
+    <string name="enter_a_label_of_card">Enter a label of Card</string>
+    <string name="enter_a_start_amount">Enter a start amount</string>
+    <string name="choose_currency">Choose currency</string>
+    <string name="choose_category">Choose category</string>
+    <string-array name="currency">
+        <item>BYN</item>
+        <item>USD</item>
+        <item>EUR</item>
+    </string-array>
+    <string-array name="category">
+        <item>Saving</item>
+        <item>Reserve</item>
+        <item>ServiceMT</item>
+        <item>Regular</item>
+    </string-array>
 </resources>

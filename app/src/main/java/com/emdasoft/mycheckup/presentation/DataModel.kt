@@ -15,6 +15,7 @@ open class DataModel : ViewModel() {
     private val getCurrentBalanceUseCase = GetCurrentBalanceUseCase(repository)
     private val getBudgetUseCase = GetBudgetUseCase(repository)
     private val editCardItemUseCase = EditCardItemUseCase(repository)
+    private val addCardItemUseCase = AddCardItemUseCase(repository)
 
     val budget: MutableLiveData<List<String>> by lazy {
         MutableLiveData<List<String>>()
@@ -35,6 +36,10 @@ open class DataModel : ViewModel() {
     fun getCardList() {
         val list = getCardListUseCase.getCardList()
         cardsList.value = list.sortedBy { it.id}
+    }
+
+    fun addCardItem(cardItem: CardItem){
+        addCardItemUseCase.addCard(cardItem)
     }
 
     fun getCurrentBalance() {
