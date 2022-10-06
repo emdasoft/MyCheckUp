@@ -1,14 +1,11 @@
 package com.emdasoft.mycheckup.domain
 
-class GetBudgetUseCase {
+class GetBudgetUseCase(private val cardListRepository: CardListRepository) {
 
-    fun getBudget(
-        receiveAmount: Double,
-        povBalance: Double,
-        mtBalance: Double,
-        resBalance: Double
-    ): ArrayList<String> {
-        TODO()
+    fun getBudget(receiveAmount: Double): ArrayList<String> {
+
+        return cardListRepository.getBudget(receiveAmount)
+
     }
 
 }

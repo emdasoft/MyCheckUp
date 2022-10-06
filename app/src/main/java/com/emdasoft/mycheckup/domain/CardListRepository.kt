@@ -22,4 +22,6 @@ interface CardListRepository {
 
     fun getCategoryBalance(): ArrayList<String>
 
+    fun getBudget(receiveAmount: Double): ArrayList<String>
+
 }
