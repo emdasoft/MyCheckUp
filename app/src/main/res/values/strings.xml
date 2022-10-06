@@ -23,6 +23,4 @@
     <string name="enter_your_spending">Enter your spending</string>
     <string name="enter_amount_of_transfer">Enter amount of transfer</string>
     <string name="yor_budget_by_category">Yor Budget by category</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
