@@ -10,12 +10,10 @@ import com.emdasoft.mycheckup.databinding.ItemCardBinding
 import com.emdasoft.mycheckup.domain.CardItem
 
 class CardsAdapter(
-    cards: List<CardItem>,
+    private var cards: List<CardItem>,
     viewPager: ViewPager2,
     private val listener: Listener
 ) : RecyclerView.Adapter<CardsAdapter.CardHolder>() {
-
-    private var cards: List<CardItem> = cards
 
     class CardHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCardBinding.bind(item)

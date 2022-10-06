@@ -36,11 +36,9 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.apply {
 
             viewPager2 = viewPager
-            var cards: List<CardItem>
 
             dataModel.cardsList.observe(activity as LifecycleOwner) {
-                cards = it
-                viewPager2.adapter = CardsAdapter(cards, viewPager2, this@CardsFragment)
+                viewPager2.adapter = CardsAdapter(it, viewPager2, this@CardsFragment)
             }
 
             dataModel.currentBalance.observe(activity as LifecycleOwner) {
