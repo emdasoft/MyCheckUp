@@ -10,6 +10,8 @@ object CardListRepositoryImpl : CardListRepository {
 
     private val cardListLD = MutableLiveData<List<CardItem>>()
     private val cardList = mutableListOf<CardItem>()
+    private val currentBalanceLD = MutableLiveData<String>()
+
     private var autoIncrementId = 0
 
     //временно, пока нет настоящих данных, берем из готового списка
@@ -25,17 +27,20 @@ object CardListRepositoryImpl : CardListRepository {
         }
         cardList.add(card)
         updateList()
+        updateCurrentBalance()
     }
 
     override fun removeCard(card: CardItem) {
         cardList.remove(card)
         updateList()
+        updateCurrentBalance()
     }
 
     override fun editCard(card: CardItem) {
         val oldElement = getCardItem(card.id)
         removeCard(oldElement)
         addCard(card)
+        updateCurrentBalance()
     }
 
     override fun getCardItem(cardId: Int): CardItem {
@@ -52,7 +57,7 @@ object CardListRepositoryImpl : CardListRepository {
         cardListLD.value = cardList.toList().sortedBy { it.id }
     }
 
-    override fun getCurrentBalance(): String {
+    private fun updateCurrentBalance() {
         var total = 0.00
 
         for (item in cardList) {
@@ -64,7 +69,11 @@ object CardListRepositoryImpl : CardListRepository {
             }
         }
         total = (total * 100).roundToInt() / 100.00
-        return total.toString()
+        currentBalanceLD.value = total.toString()
+    }
+
+    override fun getCurrentBalance(): LiveData<String> {
+        return currentBalanceLD
     }
 
     override fun getCategoryBalance(): ArrayList<String> {

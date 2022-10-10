@@ -23,21 +23,14 @@ open class DataModel : ViewModel() {
 
     val cardsList = getCardListUseCase.getCardList()
 
-    val currentBalance: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+    val currentBalance = getCurrentBalanceUseCase.getCurrentBalance()
 
     val categoryBalance: MutableLiveData<ArrayList<String>> by lazy {
         MutableLiveData<ArrayList<String>>()
     }
 
-    fun addCardItem(cardItem: CardItem){
+    fun addCardItem(cardItem: CardItem) {
         addCardItemUseCase.addCard(cardItem)
-    }
-
-    fun getCurrentBalance() {
-        val balance = getCurrentBalanceUseCase.getCurrentBalance()
-        currentBalance.value = balance
     }
 
     fun getCategoryBalance() {
@@ -58,16 +51,20 @@ open class DataModel : ViewModel() {
     }
 
     fun spendMoney(amount: Double, cardItem: CardItem) {
-        val newAmount = cardItem.amount - amount
-        val newItem = cardItem.copy(amount = newAmount)
-        editCardItemUseCase.editCard(newItem)
-        getCategoryBalance()
+        if (cardItem.amount >= amount) {
+            val newAmount = cardItem.amount - amount
+            val newItem = cardItem.copy(amount = newAmount)
+            editCardItemUseCase.editCard(newItem)
+            getCategoryBalance()
+        }
     }
 
     fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
-        spendMoney(amount, source)
-        receiveMoney(amount, target)
-        getCategoryBalance()
+        if (source.amount >= amount) {
+            spendMoney(amount, source)
+            receiveMoney(amount, target)
+            getCategoryBalance()
+        }
     }
 
     fun getBudget(receiveAmount: Double) {

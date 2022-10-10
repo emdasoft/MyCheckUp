@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -41,4 +42,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }

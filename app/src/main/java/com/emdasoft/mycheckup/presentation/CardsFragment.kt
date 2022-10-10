@@ -47,8 +47,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 tvTotalBalance.text = tmpText
             }
 
-            dataModel.getCurrentBalance()
-
             viewPager2.clipToPadding = false
             viewPager2.clipChildren = false
             viewPager2.setPadding(128, 16, 128, 16)
@@ -65,7 +63,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         }
 
         binding.refreshBalance.setOnClickListener {
-            dataModel.getCurrentBalance()
             Toast.makeText(requireContext(), "Balance refreshed", Toast.LENGTH_SHORT).show()
         }
 

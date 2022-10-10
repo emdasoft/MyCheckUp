@@ -14,7 +14,7 @@ interface CardListRepository {
 
     fun getCardList(): LiveData<List<CardItem>>
 
-    fun getCurrentBalance(): String
+    fun getCurrentBalance(): LiveData<String>
 
     fun getCategoryBalance(): ArrayList<String>
 
