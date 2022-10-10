@@ -34,7 +34,7 @@ open class DataModel : ViewModel() {
 
     fun getCardList() {
         val list = getCardListUseCase.getCardList()
-        cardsList.value = list.sortedBy { it.id}
+        cardsList.value = list.sortedBy { it.id }
     }
 
     fun getCurrentBalance() {
@@ -72,8 +72,6 @@ open class DataModel : ViewModel() {
     fun transferMoney(amount: Double, source: CardItem, target: CardItem) {
         spendMoney(amount, source)
         receiveMoney(amount, target)
-        getCardList()
-        getCategoryBalance()
         getCardList()
         getCategoryBalance()
     }
