@@ -33,8 +33,6 @@ class SpendFragment : Fragment() {
                 ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
         }
 
-        dataModel.getCardList()
-
         binding.spendButton.setOnClickListener {
 
             try {

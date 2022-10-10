@@ -34,8 +34,6 @@ class ReceiveFragment : Fragment() {
                 ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
         }
 
-        dataModel.getCardList()
-
         binding.receiveButton.setOnClickListener {
 
             try {

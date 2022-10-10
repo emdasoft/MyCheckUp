@@ -1,12 +1,15 @@
 package com.emdasoft.mycheckup.data
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.emdasoft.mycheckup.domain.CardItem
 import com.emdasoft.mycheckup.domain.CardListRepository
 import kotlin.math.roundToInt
 
 object CardListRepositoryImpl : CardListRepository {
 
-    private var cardList = mutableListOf<CardItem>()
+    private val cardListLD = MutableLiveData<List<CardItem>>()
+    private val cardList = mutableListOf<CardItem>()
     private var autoIncrementId = 0
 
     //временно, пока нет настоящих данных, берем из готового списка
@@ -21,16 +24,18 @@ object CardListRepositoryImpl : CardListRepository {
             card.id = autoIncrementId++
         }
         cardList.add(card)
+        updateList()
     }
 
     override fun removeCard(card: CardItem) {
         cardList.remove(card)
+        updateList()
     }
 
     override fun editCard(card: CardItem) {
         val oldElement = getCardItem(card.id)
-        cardList.remove(oldElement)
-        cardList.add(card)
+        removeCard(oldElement)
+        addCard(card)
     }
 
     override fun getCardItem(cardId: Int): CardItem {
@@ -39,8 +44,12 @@ object CardListRepositoryImpl : CardListRepository {
         } ?: throw RuntimeException("Element with id $cardId not found!")
     }
 
-    override fun getCardList(): List<CardItem> {
-        return cardList.toList()
+    override fun getCardList(): LiveData<List<CardItem>> {
+        return cardListLD
+    }
+
+    private fun updateList() {
+        cardListLD.value = cardList.toList().sortedBy { it.id }
     }
 
     override fun getCurrentBalance(): String {

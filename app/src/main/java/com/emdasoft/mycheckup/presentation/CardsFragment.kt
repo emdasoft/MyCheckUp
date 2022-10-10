@@ -37,8 +37,9 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
 
             viewPager2 = viewPager
 
-            dataModel.cardsList.observe(activity as LifecycleOwner) {
-                viewPager2.adapter = CardsAdapter(it, viewPager2, this@CardsFragment)
+            dataModel.cardsList.observe(activity as LifecycleOwner) { list ->
+                viewPager2.adapter =
+                    CardsAdapter(list, viewPager2, this@CardsFragment)
             }
 
             dataModel.currentBalance.observe(activity as LifecycleOwner) {
@@ -46,7 +47,6 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 tvTotalBalance.text = tmpText
             }
 
-            dataModel.getCardList()
             dataModel.getCurrentBalance()
 
             viewPager2.clipToPadding = false
