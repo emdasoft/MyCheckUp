@@ -2,29 +2,25 @@ package com.emdasoft.mycheckup.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.emdasoft.mycheckup.data.db.dao.CardDao
 import com.emdasoft.mycheckup.domain.CardItem
 import com.emdasoft.mycheckup.domain.CardListRepository
 import kotlin.math.roundToInt
 
-object CardListRepositoryImpl : CardListRepository {
+class CardListRepositoryImpl(private val dao: CardDao) : CardListRepository {
 
     private val cardListLD = MutableLiveData<List<CardItem>>()
     private val cardList = mutableListOf<CardItem>()
     private val currentBalanceLD = MutableLiveData<String>()
 
-    private var autoIncrementId = 0
-
     //временно, пока нет настоящих данных, берем из готового списка
-    init {
-        for (item in CardsData.getCardsList()) {
-            addCard(item)
-        }
-    }
+//    init {
+//        for (item in CardsData.getCardsList()) {
+//            addCard(item)
+//        }
+//    }
 
     override fun addCard(card: CardItem) {
-        if (card.id == CardItem.UNDEFINED_ID) {
-            card.id = autoIncrementId++
-        }
         cardList.add(card)
         updateList()
         updateCurrentBalance()
@@ -49,8 +45,8 @@ object CardListRepositoryImpl : CardListRepository {
         } ?: throw RuntimeException("Element with id $cardId not found!")
     }
 
-    override fun getCardList(): LiveData<List<CardItem>> {
-        return cardListLD
+    override suspend fun getCardList(): LiveData<List<CardItem>> {
+        return dao.getCardList()
     }
 
     private fun updateList() {

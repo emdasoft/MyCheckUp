@@ -12,7 +12,7 @@ interface CardListRepository {
 
     fun getCardItem(cardId: Int): CardItem
 
-    fun getCardList(): LiveData<List<CardItem>>
+    suspend fun getCardList(): LiveData<List<CardItem>>
 
     fun getCurrentBalance(): LiveData<String>
 

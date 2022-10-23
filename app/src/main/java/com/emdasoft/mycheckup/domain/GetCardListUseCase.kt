@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 
 class GetCardListUseCase(private val cardListRepository: CardListRepository) {
 
-    fun getCardList(): LiveData<List<CardItem>> {
+    suspend fun getCardList(): LiveData<List<CardItem>> {
 
         return cardListRepository.getCardList()
 
