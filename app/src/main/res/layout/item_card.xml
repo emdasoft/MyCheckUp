@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="8dp"
+    app:cardElevation="4dp"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +63,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvCardAmount"
             tools:ignore="TextContrastCheck"
-            tools:text="See details" />
+            tools:text="Saving" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

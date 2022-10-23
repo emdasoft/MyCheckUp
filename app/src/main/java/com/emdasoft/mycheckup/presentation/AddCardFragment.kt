@@ -51,13 +51,8 @@ class AddCardFragment : Fragment() {
                         card
                     )
 
-                    activity?.supportFragmentManager
-                        ?.beginTransaction()
-                        ?.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                        ?.detach(this@AddCardFragment)
-                        ?.replace(R.id.topPlaceHolder, CardsFragment.newInstance())
-                        ?.replace(R.id.bottomPlaceHolder, CategoryFragment.newInstance())
-                        ?.commit()
+                    Toast.makeText(requireContext(), "Card add successfully", Toast.LENGTH_SHORT)
+                        .show()
 
                 } catch (e: Exception) {
                     Toast.makeText(requireContext(), "Data is incorrectly", Toast.LENGTH_SHORT)

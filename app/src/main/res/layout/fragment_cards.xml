@@ -64,20 +64,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="8dp">
+        android:orientation="horizontal">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/receiveCard"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:elevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true">
 
             <TextView
                 android:id="@+id/txtReceive"
@@ -97,10 +95,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:elevation="16dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true">
 
             <TextView
                 android:id="@+id/txtSpend"
@@ -118,10 +115,9 @@
             android:id="@+id/transferCard"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:elevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true">
 
                 <TextView
                     android:id="@+id/txtTransfer"

@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-
+        app:cardUseCompatPadding="true"
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp">
 
@@ -40,7 +40,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/enter_a_label_of_card"
-                    android:inputType="numberDecimal"
                     android:maxLines="1"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
