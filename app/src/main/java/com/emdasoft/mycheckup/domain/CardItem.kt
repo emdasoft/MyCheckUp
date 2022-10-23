@@ -1,5 +1,8 @@
 package com.emdasoft.mycheckup.domain
 
+import androidx.room.Entity
+
+@Entity
 data class CardItem (
     val title: String,
     var amount: Double,

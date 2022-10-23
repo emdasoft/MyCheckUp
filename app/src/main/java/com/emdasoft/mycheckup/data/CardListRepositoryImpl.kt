@@ -115,8 +115,8 @@ object CardListRepositoryImpl : CardListRepository {
     override fun getBudget(receiveAmount: Double): ArrayList<String> {
         val toSaving = ((receiveAmount * 0.2) * 100).roundToInt() / 100.00
         val toReserve = ((receiveAmount * 0.3) * 100).roundToInt() / 100.00
-        val toServiceMT = ((receiveAmount * 0.15) * 100).roundToInt() / 100.00
-        val toRegular = ((receiveAmount * 0.35) * 100).roundToInt() / 100.00
+        val toServiceMT = ((receiveAmount * 0.05) * 100).roundToInt() / 100.00
+        val toRegular = ((receiveAmount * 0.45) * 100).roundToInt() / 100.00
         val result = arrayListOf<String>()
         result.add(toSaving.toString())
         result.add(toReserve.toString())
