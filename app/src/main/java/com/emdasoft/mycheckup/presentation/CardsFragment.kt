@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -77,6 +78,7 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
         binding.transferCard.setOnClickListener {
             openFragment(TransferFragment.newInstance(), R.id.topPlaceHolder)
         }
+
     }
 
     companion object {

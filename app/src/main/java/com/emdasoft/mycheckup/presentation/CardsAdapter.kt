@@ -44,8 +44,9 @@ class CardsAdapter(
             tvCardCurrency.text = card.currency
 //            tvDescription.text = itemView.context.getText(R.string.more_info)
             tvDescription.text = card.category
-            itemView.setOnClickListener {
+            itemView.setOnLongClickListener {
                 listener.onClick(card)
+                true
             }
         }
     }
