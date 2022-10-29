@@ -38,6 +38,7 @@ class AddCardFragment : Fragment() {
             autoCompleteCategory.setAdapter(arrayAdapter2)
 
             addCardButton.setOnClickListener {
+
                 try {
 
                     val card = CardItem(

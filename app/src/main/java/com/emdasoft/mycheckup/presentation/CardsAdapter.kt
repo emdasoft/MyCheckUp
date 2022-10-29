@@ -1,8 +1,11 @@
 package com.emdasoft.mycheckup.presentation
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.R
@@ -11,10 +14,23 @@ import com.emdasoft.mycheckup.domain.CardItem
 import kotlin.math.roundToInt
 
 class CardsAdapter(
-    private var cards: List<CardItem>,
-    viewPager: ViewPager2,
-    private val listener: Listener
+    viewPager: ViewPager2
 ) : RecyclerView.Adapter<CardsAdapter.CardHolder>() {
+
+    var cards = listOf<CardItem>()
+        @SuppressLint("NotifyDataSetChanged")
+        set(value) {
+//            val callback = CardListDiffCallback(cards, value)
+//            val diffResult = DiffUtil.calculateDiff(callback)
+//            diffResult.dispatchUpdatesTo(this)
+            field = value
+            notifyDataSetChanged()
+        }
+
+    var onLongClickListener: ((CardItem) -> Unit)? = null
+    var onClickListener: ((CardItem) -> Unit)? = null
+
+    var count = 0
 
     class CardHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCardBinding.bind(item)
@@ -23,7 +39,7 @@ class CardsAdapter(
             R.drawable.gradient_flow, R.drawable.gradient_turquoise
         )
 
-        fun bind(card: CardItem, listener: Listener) = with(binding) {
+        fun bind(card: CardItem) = with(binding) {
             tvCardLabel.text = card.title
             when (card.category) {
                 "Regular" -> {
@@ -44,10 +60,6 @@ class CardsAdapter(
             tvCardCurrency.text = card.currency
 //            tvDescription.text = itemView.context.getText(R.string.more_info)
             tvDescription.text = card.category
-            itemView.setOnLongClickListener {
-                listener.onClick(card)
-                true
-            }
         }
     }
 
@@ -57,15 +69,19 @@ class CardsAdapter(
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(cards[position], listener)
+        Log.d("MyAdapter", "${++count}")
+        holder.bind(cards[position])
+        holder.itemView.setOnLongClickListener {
+            onLongClickListener?.invoke(cards[position])
+            true
+        }
+        holder.itemView.setOnClickListener {
+            onClickListener?.invoke(cards[position])
+        }
     }
 
     override fun getItemCount(): Int {
         return cards.size
-    }
-
-    interface Listener {
-        fun onClick(card: CardItem)
     }
 
 }
