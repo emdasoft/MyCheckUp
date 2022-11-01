@@ -50,6 +50,7 @@ class AddCardFragment : Fragment() {
                     dataModel.addCardItem(
                         card
                     )
+                    dataModel.getCategoryBalance()
 
                     Toast.makeText(requireContext(), "Card add successfully", Toast.LENGTH_SHORT)
                         .show()
