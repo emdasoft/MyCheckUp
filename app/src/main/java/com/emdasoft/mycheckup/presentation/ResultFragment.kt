@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.emdasoft.mycheckup.databinding.FragmentResultBinding
 import com.emdasoft.mycheckup.domain.CardItem
 
-class ResultFragment : Fragment(), CardsAdapter.Listener {
+class ResultFragment : Fragment() {
 
     private val dataModel: DataModel by activityViewModels()
     private lateinit var binding: FragmentResultBinding
@@ -55,7 +55,4 @@ class ResultFragment : Fragment(), CardsAdapter.Listener {
         fun newInstance() = ResultFragment()
     }
 
-    override fun onClick(card: CardItem) {
-        Toast.makeText(requireContext(), "This is ${card.title}", Toast.LENGTH_SHORT).show()
-    }
 }

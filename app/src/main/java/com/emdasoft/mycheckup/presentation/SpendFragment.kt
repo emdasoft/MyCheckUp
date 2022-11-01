@@ -43,7 +43,7 @@ class SpendFragment : Fragment() {
                 )
                 openFragmentWithDetach(
                     CardsFragment.newInstance(),
-                    com.emdasoft.mycheckup.R.id.topPlaceHolder
+                    com.emdasoft.mycheckup.R.id.mainPlaceHolder
                 )
 
             } catch (e: Exception) {

@@ -1,20 +1,28 @@
 package com.emdasoft.mycheckup.presentation
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.ItemCardBinding
 import com.emdasoft.mycheckup.domain.CardItem
 import kotlin.math.roundToInt
 
-class CardsAdapter(
-    private var cards: List<CardItem>,
-    viewPager: ViewPager2,
-    private val listener: Listener
-) : RecyclerView.Adapter<CardsAdapter.CardHolder>() {
+class CardsAdapter(private val listener: OnClickListener) :
+    RecyclerView.Adapter<CardsAdapter.CardHolder>() {
+
+    var count = 0
+
+    var cards = emptyList<CardItem>()
+        set(value) {
+            val callback = CardListDiffCallback(cards, value)
+            val diffResult = DiffUtil.calculateDiff(callback)
+            diffResult.dispatchUpdatesTo(this)
+            field = value
+        }
 
     class CardHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCardBinding.bind(item)
@@ -23,7 +31,7 @@ class CardsAdapter(
             R.drawable.gradient_flow, R.drawable.gradient_turquoise
         )
 
-        fun bind(card: CardItem, listener: Listener) = with(binding) {
+        fun bind(card: CardItem, listener: OnClickListener) = with(binding) {
             tvCardLabel.text = card.title
             when (card.category) {
                 "Regular" -> {
@@ -44,14 +52,14 @@ class CardsAdapter(
             tvCardCurrency.text = card.currency
 //            tvDescription.text = itemView.context.getText(R.string.more_info)
             tvDescription.text = card.category
-            itemView.setOnLongClickListener {
+            del.setOnClickListener {
                 listener.onClick(card)
-                true
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
+        Log.d("MyAdapter", "${++count}")
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
         return CardHolder(view)
     }
@@ -64,8 +72,9 @@ class CardsAdapter(
         return cards.size
     }
 
-    interface Listener {
+    interface OnClickListener {
         fun onClick(card: CardItem)
     }
+
 
 }

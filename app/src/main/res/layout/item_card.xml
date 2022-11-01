@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardItem"
@@ -65,12 +65,32 @@
             tools:ignore="TextContrastCheck"
             tools:text="Saving" />
 
+        <ImageView
+            android:id="@+id/del"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/delBtn"-->
+        <!--            android:layout_width="48dp"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:layout_marginEnd="2dp"-->
+        <!--            android:layout_marginBottom="2dp"-->
+        <!--            android:src="@drawable/ic_baseline_delete_24"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent" />-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>
 
-<!--    https://www.youtube.com/watch?v=rt2MPo7YbIA-->
-<!--    https://www.youtube.com/watch?v=qRAzOfFoIZQ-->
-<!--    https://www.youtube.com/watch?v=KytDL9dgNYk-->
+    <!--    https://www.youtube.com/watch?v=rt2MPo7YbIA-->
+    <!--    https://www.youtube.com/watch?v=qRAzOfFoIZQ-->
+    <!--    https://www.youtube.com/watch?v=KytDL9dgNYk-->

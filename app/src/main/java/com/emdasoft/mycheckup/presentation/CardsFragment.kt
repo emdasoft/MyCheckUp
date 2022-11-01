@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
-import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -16,12 +15,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentCardsBinding
 import com.emdasoft.mycheckup.domain.CardItem
+import kotlin.math.abs
 
-class CardsFragment : Fragment(), CardsAdapter.Listener {
+class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
 
-    private val dataModel: DataModel by activityViewModels()
     private lateinit var binding: FragmentCardsBinding
     private lateinit var viewPager2: ViewPager2
+    private lateinit var viewPagerAdapter: CardsAdapter
+    private lateinit var dataModel: DataModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +35,14 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dataModel = ViewModelProvider(this)[DataModel::class.java]
+
         binding.apply {
 
-            viewPager2 = viewPager
+            setupViewPager()
 
             dataModel.cardsList.observe(activity as LifecycleOwner) { list ->
-                viewPager2.adapter =
-                    CardsAdapter(list, viewPager2, this@CardsFragment)
+                viewPagerAdapter.cards = list
             }
 
             dataModel.currentBalance.observe(activity as LifecycleOwner) {
@@ -48,36 +50,74 @@ class CardsFragment : Fragment(), CardsAdapter.Listener {
                 tvTotalBalance.text = tmpText
             }
 
-            viewPager2.clipToPadding = false
-            viewPager2.clipChildren = false
-            viewPager2.setPadding(128, 16, 128, 16)
-            viewPager2.offscreenPageLimit = 3
-            viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
-            val compositePageTransformer = CompositePageTransformer()
-            compositePageTransformer.addTransformer(MarginPageTransformer(30))
-            compositePageTransformer.addTransformer { page, position ->
-                val r = 1 - kotlin.math.abs(position)
-                page.scaleY = 0.8f + r * 0.1f
+            dataModel.categoryBalance.observe(activity as LifecycleOwner) {
+                tvAmountSeb.text = buildString {
+                    append("Saving: ")
+                    append(it[0])
+                    append(" USD")
+                }
+                tvAmountRes.text = buildString {
+                    append("Reserve: ")
+                    append(it[1])
+                    append(" BYN")
+                }
+                tvAmountMt.text = buildString {
+                    append("ServiceMT: ")
+                    append(it[2])
+                    append(" BYN")
+                }
+                tvAmountPov.text = buildString {
+                    append("Regular: ")
+                    append(it[3])
+                    append(" BYN")
+                }
             }
-            viewPager2.setPageTransformer(compositePageTransformer)
+
+            dataModel.getCategoryBalance()
         }
 
+        setOnClickListeners()
+
+    }
+
+    private fun setOnClickListeners() {
         binding.refreshBalance.setOnClickListener {
             Toast.makeText(requireContext(), "Balance refreshed", Toast.LENGTH_SHORT).show()
         }
 
         binding.receiveCard.setOnClickListener {
-            openFragment(ReceiveFragment.newInstance(), R.id.topPlaceHolder)
+            openFragment(ReceiveFragment.newInstance(), R.id.mainPlaceHolder)
         }
 
         binding.spendCard.setOnClickListener {
-            openFragment(SpendFragment.newInstance(), R.id.topPlaceHolder)
+            openFragment(SpendFragment.newInstance(), R.id.mainPlaceHolder)
         }
 
         binding.transferCard.setOnClickListener {
-            openFragment(TransferFragment.newInstance(), R.id.topPlaceHolder)
+            openFragment(TransferFragment.newInstance(), R.id.mainPlaceHolder)
         }
+    }
+
+    private fun setupViewPager() {
+
+        viewPager2 = binding.viewPager
+        viewPagerAdapter = CardsAdapter(this)
+        viewPager2.adapter = viewPagerAdapter
+
+        viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        viewPager2.clipToPadding = false
+        viewPager2.clipChildren = false
+        viewPager2.setPadding(128, 16, 128, 16)
+        viewPager2.offscreenPageLimit = 3
+        viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+        val compositePageTransformer = CompositePageTransformer()
+        compositePageTransformer.addTransformer(MarginPageTransformer(30))
+        compositePageTransformer.addTransformer { page, position ->
+            val r = 1 - abs(position)
+            page.scaleY = 0.8f + r * 0.1f
+        }
+        viewPager2.setPageTransformer(compositePageTransformer)
 
     }
 

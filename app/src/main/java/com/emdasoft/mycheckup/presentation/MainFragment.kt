@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
                 dataModel.getBudget(
                     binding.incomeTextInput.text.toString().toDouble()
                 )
-                openFragment(ResultFragment.newInstance(), R.id.bottomPlaceHolder)
+                openFragment(ResultFragment.newInstance(), R.id.mainPlaceHolder)
                 DismissKeyboard().dismissKeyboard(activity as MainActivity)
 
             } catch (e: Exception) {
