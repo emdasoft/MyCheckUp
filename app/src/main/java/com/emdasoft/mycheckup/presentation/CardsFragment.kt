@@ -50,25 +50,25 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
                 tvTotalBalance.text = tmpText
             }
 
-            dataModel.categoryBalance.observe(activity as LifecycleOwner) {
+            dataModel.categoryBalance.observe(activity as LifecycleOwner) { list ->
                 tvAmountSeb.text = buildString {
                     append("Saving: ")
-                    append(it[0])
+                    append(list[0])
                     append(" USD")
                 }
                 tvAmountRes.text = buildString {
                     append("Reserve: ")
-                    append(it[1])
+                    append(list[1])
                     append(" BYN")
                 }
                 tvAmountMt.text = buildString {
                     append("ServiceMT: ")
-                    append(it[2])
+                    append(list[2])
                     append(" BYN")
                 }
                 tvAmountPov.text = buildString {
                     append("Regular: ")
-                    append(it[3])
+                    append(list[3])
                     append(" BYN")
                 }
             }
@@ -114,7 +114,7 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
         val compositePageTransformer = CompositePageTransformer()
         compositePageTransformer.addTransformer(MarginPageTransformer(30))
         compositePageTransformer.addTransformer { page, position ->
-            val r = 1 - abs(position)
+            val r = 1 - (abs(position) / 48)
             page.scaleY = 0.8f + r * 0.1f
         }
         viewPager2.setPageTransformer(compositePageTransformer)
