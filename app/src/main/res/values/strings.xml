@@ -27,6 +27,7 @@
     <string name="enter_a_start_amount">Enter a start amount</string>
     <string name="choose_currency">Choose currency</string>
     <string name="choose_category">Choose category</string>
+    <string name="delete_this_card">Delete this Card</string>
     <string-array name="currency">
         <item>BYN</item>
         <item>USD</item>

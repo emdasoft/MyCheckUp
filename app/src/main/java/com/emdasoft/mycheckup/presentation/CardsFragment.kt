@@ -1,6 +1,7 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,20 +9,18 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.CompositePageTransformer
-import androidx.viewpager2.widget.MarginPageTransformer
-import androidx.viewpager2.widget.ViewPager2
 import com.emdasoft.mycheckup.R
 import com.emdasoft.mycheckup.databinding.FragmentCardsBinding
 import com.emdasoft.mycheckup.domain.CardItem
-import kotlin.math.abs
 
 class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
 
     private lateinit var binding: FragmentCardsBinding
-    private lateinit var viewPager2: ViewPager2
-    private lateinit var viewPagerAdapter: CardsAdapter
+    private lateinit var rvPagerAdapter: CardsAdapter
     private lateinit var dataModel: DataModel
 
     override fun onCreateView(
@@ -39,10 +38,10 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
 
         binding.apply {
 
-            setupViewPager()
+            setupRecyclerViewPager()
 
             dataModel.cardsList.observe(activity as LifecycleOwner) { list ->
-                viewPagerAdapter.cards = list
+                rvPagerAdapter.cards = list
             }
 
             dataModel.currentBalance.observe(activity as LifecycleOwner) {
@@ -98,26 +97,19 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
         }
     }
 
-    private fun setupViewPager() {
+    private fun setupRecyclerViewPager() {
 
-        viewPager2 = binding.viewPager
-        viewPagerAdapter = CardsAdapter(this)
-        viewPager2.adapter = viewPagerAdapter
+        binding.rvPager.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvPager.setHasFixedSize(true)
+        rvPagerAdapter = CardsAdapter(this, getDisplayMetrics())
+        binding.rvPager.adapter = rvPagerAdapter
 
-        viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        viewPager2.clipToPadding = false
-        viewPager2.clipChildren = false
-        viewPager2.setPadding(128, 16, 128, 16)
-        viewPager2.offscreenPageLimit = 3
-        viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        rvPagerAdapter.setItemMargin(resources.getDimension(R.dimen.pager_margin).toInt())
+        rvPagerAdapter.updateDisplayMetrics()
+        PagerSnapHelper().attachToRecyclerView(binding.rvPager)
 
-        val compositePageTransformer = CompositePageTransformer()
-        compositePageTransformer.addTransformer(MarginPageTransformer(30))
-        compositePageTransformer.addTransformer { page, position ->
-            val r = 1 - (abs(position) / 48)
-            page.scaleY = 0.8f + r * 0.1f
-        }
-        viewPager2.setPageTransformer(compositePageTransformer)
+        setupOnSwipeListener()
 
     }
 
@@ -129,6 +121,33 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
     override fun onClick(card: CardItem) {
         dataModel.removeCardItem(card)
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getDisplayMetrics(): DisplayMetrics {
+        return resources.displayMetrics
+    }
+
+    private fun setupOnSwipeListener() {
+        val callback = object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val item = rvPagerAdapter.cards[viewHolder.adapterPosition]
+                dataModel.removeCardItem(item)
+            }
+
+        }
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(binding.rvPager)
     }
 
 }
