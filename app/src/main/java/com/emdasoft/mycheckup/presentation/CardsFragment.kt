@@ -113,11 +113,6 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
 
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = CardsFragment()
-    }
-
     override fun onClick(card: CardItem) {
         dataModel.removeCardItem(card)
         Toast.makeText(requireContext(), "The ${card.title} removed", Toast.LENGTH_SHORT).show()
@@ -148,6 +143,11 @@ class CardsFragment : Fragment(), CardsAdapter.OnClickListener {
         }
         val itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(binding.rvPager)
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = CardsFragment()
     }
 
 }

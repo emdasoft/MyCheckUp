@@ -39,12 +39,18 @@ class CardsAdapter(private val listener: OnClickListener, private val metrics: D
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
         var currentItemWidth = itemWidth
-        if (position == itemCount - itemCount) {
-            currentItemWidth += itemMargin
-            holder.itemView.setPadding(itemMargin, 0, 0, 0)
-        } else if (position == itemCount - 1) {
-            currentItemWidth += itemMargin
-            holder.itemView.setPadding(0, 0, itemMargin, 0)
+        when (position) {
+            0 -> {
+                currentItemWidth += itemMargin
+                holder.itemView.setPadding(itemMargin, 0, 0, 0)
+            }
+            itemCount - 1 -> {
+                currentItemWidth += itemMargin
+                holder.itemView.setPadding(0, 0, itemMargin, 0)
+            }
+            else -> {
+                holder.itemView.setPadding(0, 0, 0, 0)
+            }
         }
 
         val height = holder.itemView.layoutParams.height
@@ -59,10 +65,5 @@ class CardsAdapter(private val listener: OnClickListener, private val metrics: D
     interface OnClickListener {
         fun onClick(card: CardItem)
     }
-
-//    override fun getItemViewType(position: Int): Int {
-//        //TODO("Replace this shit!")
-//        return position
-//    }
 
 }
