@@ -1,6 +1,7 @@
 package com.emdasoft.mycheckup.presentation
 
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +11,8 @@ import com.emdasoft.mycheckup.domain.CardItem
 
 class CardsAdapter(private val listener: OnClickListener, private val metrics: DisplayMetrics) :
     RecyclerView.Adapter<CardHolder>() {
+
+    private var count = 0
 
     private var itemMargin: Int = 0
     private var itemWidth: Int = 0
@@ -32,6 +35,7 @@ class CardsAdapter(private val listener: OnClickListener, private val metrics: D
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
+        Log.d("MyAdapter", "ViewHolder create ${++count} times")
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.new_card_item, parent, false)
         return CardHolder(view)
