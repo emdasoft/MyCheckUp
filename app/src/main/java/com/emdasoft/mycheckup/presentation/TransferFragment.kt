@@ -59,7 +59,6 @@ class TransferFragment : Fragment() {
 
     }
 
-
     companion object {
         @JvmStatic
         fun newInstance() = TransferFragment()

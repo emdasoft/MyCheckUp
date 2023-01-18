@@ -154,9 +154,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
             android:gravity="center"
@@ -180,7 +184,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/firstcat" />
+                    android:src="@drawable/saving" />
 
                 <TextView
                     android:id="@+id/tvAmountSeb"
@@ -204,7 +208,7 @@
                     android:layout_height="64dp"
                     android:layout_marginEnd="16dp"
                     android:elevation="16dp"
-                    android:src="@drawable/secondcat" />
+                    android:src="@drawable/reserv" />
 
                 <TextView
                     android:id="@+id/tvAmountRes"
@@ -226,7 +230,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/thirdcat" />
+                    android:src="@drawable/mtservice" />
 
                 <TextView
                     android:id="@+id/tvAmountMt"
@@ -248,7 +252,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/forthcat" />
+                    android:src="@drawable/regular" />
 
                 <TextView
                     android:id="@+id/tvAmountPov"
@@ -260,266 +264,10 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
+
+        </ScrollView>
 
     </com.google.android.material.card.MaterialCardView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent"-->
-    <!--    android:background="@color/background"-->
-    <!--    android:orientation="vertical"-->
-    <!--    tools:context=".presentation.CardsFragment">-->
-
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="48dp"-->
-    <!--        android:layout_marginTop="12dp"-->
-    <!--        android:layout_marginEnd="48dp">-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tvTotalTitle"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:fontFamily="@font/ubuntu_medium"-->
-    <!--            android:text="@string/total_title"-->
-    <!--            android:textColor="@color/title_color"-->
-    <!--            android:textSize="18sp"-->
-    <!--            android:textStyle="normal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tvTotalBalance"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:layout_marginEnd="8dp"-->
-    <!--            android:fontFamily="@font/ubuntu_medium"-->
-    <!--            android:textColor="@color/title_color"-->
-    <!--            android:textSize="24sp"-->
-    <!--            android:textStyle="normal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toStartOf="@id/refreshBalance"-->
-    <!--            app:layout_constraintTop_toTopOf="parent"-->
-    <!--            tools:text="$ 4.658,50" />-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/refreshBalance"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:background="?android:selectableItemBackgroundBorderless"-->
-    <!--            android:src="@drawable/ic_baseline_refresh_24"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent"-->
-    <!--            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
-
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-    <!--    <androidx.viewpager2.widget.ViewPager2-->
-    <!--        android:id="@+id/viewPager"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="200dp" />-->
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:gravity="center"-->
-    <!--        android:orientation="horizontal">-->
-
-    <!--        <com.google.android.material.card.MaterialCardView-->
-    <!--            android:id="@+id/receiveCard"-->
-    <!--            android:layout_width="104dp"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            app:cardCornerRadius="8dp"-->
-    <!--            app:cardElevation="4dp"-->
-    <!--            app:cardUseCompatPadding="true">-->
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/txtReceive"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:gravity="center"-->
-    <!--                android:text="@string/receive"-->
-    <!--                app:drawableTopCompat="@drawable/tv_receive" />-->
-
-
-    <!--        </com.google.android.material.card.MaterialCardView>-->
-
-    <!--        <com.google.android.material.card.MaterialCardView-->
-    <!--            android:id="@+id/spendCard"-->
-    <!--            android:layout_width="104dp"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginStart="12dp"-->
-    <!--            android:layout_marginEnd="12dp"-->
-    <!--            app:cardCornerRadius="8dp"-->
-    <!--            app:cardElevation="4dp"-->
-    <!--            app:cardUseCompatPadding="true">-->
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/txtSpend"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:gravity="center"-->
-    <!--                android:text="@string/spend"-->
-    <!--                app:drawableTopCompat="@drawable/tv_spend" />-->
-
-
-    <!--        </com.google.android.material.card.MaterialCardView>-->
-
-    <!--        <com.google.android.material.card.MaterialCardView-->
-    <!--            android:id="@+id/transferCard"-->
-    <!--            android:layout_width="104dp"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            app:cardCornerRadius="8dp"-->
-    <!--            app:cardElevation="4dp"-->
-    <!--            app:cardUseCompatPadding="true">-->
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/txtTransfer"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:gravity="center"-->
-    <!--                android:text="@string/transfer"-->
-    <!--                app:drawableTopCompat="@drawable/tv_transfer" />-->
-
-
-    <!--        </com.google.android.material.card.MaterialCardView>-->
-
-    <!--    </LinearLayout>-->
-
-    <!--    <com.google.android.material.card.MaterialCardView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_marginStart="8dp"-->
-    <!--        android:layout_marginEnd="8dp"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        app:cardCornerRadius="8dp"-->
-    <!--        app:cardElevation="4dp"-->
-    <!--        app:cardUseCompatPadding="true">-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:layout_marginStart="48dp"-->
-    <!--            android:layout_marginEnd="48dp"-->
-    <!--            android:gravity="center"-->
-    <!--            android:orientation="vertical">-->
-
-    <!--            <TextView-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:layout_marginBottom="8dp"-->
-    <!--                android:fontFamily="@font/ubuntu_medium"-->
-    <!--                android:gravity="center"-->
-    <!--                android:text="@string/balance_by_category"-->
-    <!--                android:textSize="18sp" />-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:orientation="horizontal">-->
-
-    <!--                <ImageView-->
-    <!--                    android:layout_width="64dp"-->
-    <!--                    android:layout_height="64dp"-->
-    <!--                    android:layout_marginEnd="16dp"-->
-    <!--                    android:src="@drawable/firstcat" />-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tvAmountSeb"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:textSize="18sp"-->
-    <!--                    tools:text="USD 4 300.00" />-->
-
-    <!--            </LinearLayout>-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:layout_marginBottom="8dp"-->
-    <!--                android:orientation="horizontal">-->
-
-    <!--                <ImageView-->
-    <!--                    android:layout_width="64dp"-->
-    <!--                    android:layout_height="64dp"-->
-    <!--                    android:layout_marginEnd="16dp"-->
-    <!--                    android:elevation="16dp"-->
-    <!--                    android:src="@drawable/secondcat" />-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tvAmountRes"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:textSize="18sp"-->
-    <!--                    tools:text="BYN 500.00" />-->
-
-    <!--            </LinearLayout>-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginBottom="8dp"-->
-    <!--                android:orientation="horizontal">-->
-
-    <!--                <ImageView-->
-    <!--                    android:layout_width="64dp"-->
-    <!--                    android:layout_height="64dp"-->
-    <!--                    android:layout_marginEnd="16dp"-->
-    <!--                    android:src="@drawable/thirdcat" />-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tvAmountMt"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:textSize="18sp"-->
-    <!--                    tools:text="BYN 500.00" />-->
-
-    <!--            </LinearLayout>-->
-
-    <!--            <LinearLayout-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginBottom="24dp"-->
-    <!--                android:orientation="horizontal">-->
-
-    <!--                <ImageView-->
-    <!--                    android:layout_width="64dp"-->
-    <!--                    android:layout_height="64dp"-->
-    <!--                    android:layout_marginEnd="16dp"-->
-    <!--                    android:src="@drawable/forthcat" />-->
-
-    <!--                <TextView-->
-    <!--                    android:id="@+id/tvAmountPov"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:gravity="center"-->
-    <!--                    android:textSize="18sp"-->
-    <!--                    tools:text="BYN 500.00" />-->
-
-    <!--            </LinearLayout>-->
-
-
-    <!--        </LinearLayout>-->
-
-    <!--    </com.google.android.material.card.MaterialCardView>-->
-
-
-    <!--</LinearLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
