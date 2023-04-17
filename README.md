@@ -1,6 +1,6 @@
 # MyCheckUp
 
 
-![Screenshot_20230417-215520_MyCheckUp](https://user-images.githubusercontent.com/93913575/232584810-f0441f22-582a-4f69-a583-2d6df029476e.jpg)
-![Screenshot_20230417-215509_MyCheckUp](https://user-images.githubusercontent.com/93913575/232584814-af33b584-164c-496c-ae4b-db85d24e4e57.jpg)
-![Screenshot_20230417-215451_MyCheckUp](https://user-images.githubusercontent.com/93913575/232584815-9b6d3cde-384d-44b8-bbb4-b62ed38b23b6.jpg)
+![Screenshot_20230417-215451_MyCheckUp](https://user-images.githubusercontent.com/93913575/232585806-3b427773-02fa-463f-bd10-d53d7cd60731.jpg)
+![Screenshot_20230417-215509_MyCheckUp](https://user-images.githubusercontent.com/93913575/232585819-496f7545-5bbb-44d8-9380-b3ae8ddca7c9.jpg)
+![Screenshot_20230417-215520_MyCheckUp](https://user-images.githubusercontent.com/93913575/232585828-ade9902c-89f9-45e7-af00-68199abd7299.jpg)
